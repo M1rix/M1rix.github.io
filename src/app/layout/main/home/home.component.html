@@ -1,21 +1,27 @@
-<section id="home" class="custom-vh-100 row">
+<div id="home" class="custom-vh-100 row">
   <div class="col-7 d-flex justify-content-start align-items-center">
     <div class="row">
       <div class="col-12">
         <div class="d-flex">
-          <span class="h1 roller">
-          <span class="text-black text-end" id="rolltext">
-            <span class="badge bg-gradient-primary">Back-End Java</span><br/>
-            <span class="badge bg-gradient-primary">Front-End</span><br/>
-            <span class="badge bg-gradient-primary">Full-Stack</span><br/>
-          </span>
+          <span class="h1 roller slide">
+            <span *ngIf="stack === 'Back-End'" class="badge rounded-pill bg-gradient-primary">Back-End Java</span><br/>
+            <span *ngIf="stack === 'Front-End'" class="badge rounded-pill bg-gradient-primary">Front-End</span><br/>
+            <span *ngIf="stack === 'Full-Stack'" class="badge rounded-pill bg-gradient-primary">Full-Stack</span><br/>
         </span>
           <span class="h1 text-black">Developer 👋</span>
         </div>
-        <p class="d-flex">Hi, I'm Mirshod Allaberganov. I'm passionate developer</p>
+        <p class="d-flex">{{'Hi, I\'m Mirshod Allaberganov. I\'m passionate '+ (stack === 'Front-End' ? ' Angular ' : stack ==='Back-End' ? ' Java ' : '') + 'developer'}}</p>
       </div>
-      <p class="col-12">
-        Tech Stack | <span class="stack"></span>
+      <p class="col-12 d-flex justify-content-start align-items-center">
+        <span>Tech Stack | </span>
+        <span class="stack" *ngIf="stack === 'Front-End' || stack === 'Full-Stack'">
+          <img src="./assets/img/logos/html.png" alt="html" [width]="48" class="cursor-pointer" >
+          <img src="./assets/img/logos/css.png" alt="css" [width]="48" class="cursor-pointer">
+          <img src="./assets/img/logos/bootstrap.png" alt="bootstrap" [width]="48" class="cursor-pointer">
+          <img src="./assets/img/logos/js.png" alt="js" [width]="48" class="cursor-pointer">
+          <img src="./assets/img/logos/ts.png" alt="ts" [width]="48" class="cursor-pointer">
+          <img src="./assets/img/logos/angular.png" alt="angular" [width]="48" class="cursor-pointer">
+        </span>
       </p>
     </div>
   </div>
@@ -23,4 +29,4 @@
     <span class="rounded-circle me"></span>
   </div>
 
-</section>
+</div>

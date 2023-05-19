@@ -10,6 +10,9 @@ import { HomeComponent } from './layout/main/home/home.component';
 import { AboutComponent } from './layout/main/about/about.component';
 import { ProjectsComponent } from './layout/main/projects/projects.component';
 import { ContactComponent } from './layout/main/contact/contact.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,10 @@ import { ContactComponent } from './layout/main/contact/contact.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FontAwesomeModule,
+    NgSelectModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

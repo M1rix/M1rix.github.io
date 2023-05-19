@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
@@ -6,10 +6,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
+  @Output() changeStack: EventEmitter<any> = new EventEmitter<any>();
 
+  allStack = ['Front-End','Back-End','Full-Stack'];
+  selectedStack = 'Front-End';
+  stackForSelect: string[] = [];
   constructor() { }
 
   ngOnInit(): void {
+    this.handleStackForSelect(this.selectedStack);
   }
 
+  handleStackForSelect(stack: any): void {
+    this.selectedStack = stack;
+    this.changeStack.emit(this.selectedStack);
+    this.stackForSelect = this.allStack.filter(s=> s!== this.selectedStack);
+
+  }
 }

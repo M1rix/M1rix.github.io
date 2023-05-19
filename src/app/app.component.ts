@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  stack: 'Front-End' | 'Back-End'| 'Full-Stack' = 'Front-End';
   title = 'portfolio';
 }
