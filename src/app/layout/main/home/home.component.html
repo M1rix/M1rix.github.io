@@ -1,26 +1,42 @@
 <div id="home" class="custom-vh-100 row">
   <div class="col-7 d-flex justify-content-start align-items-center">
     <div class="row">
-      <div class="col-12">
+      <div class="col-12 mb-3">
         <div class="d-flex">
           <span class="h1 roller slide">
-            <span *ngIf="stack === 'Back-End'" class="badge rounded-pill bg-gradient-primary">Back-End Java</span><br/>
+            <span *ngIf="stack === 'Back-End'" class="badge rounded-pill bg-gradient-primary">Back-End</span><br/>
             <span *ngIf="stack === 'Front-End'" class="badge rounded-pill bg-gradient-primary">Front-End</span><br/>
             <span *ngIf="stack === 'Full-Stack'" class="badge rounded-pill bg-gradient-primary">Full-Stack</span><br/>
         </span>
           <span class="h1 text-black">Developer 👋</span>
         </div>
-        <p class="d-flex">{{'Hi, I\'m Mirshod Allaberganov. I\'m passionate '+ (stack === 'Front-End' ? ' Angular ' : stack ==='Back-End' ? ' Java ' : '') + 'developer'}}</p>
+        <p class="d-flex">{{'Hi, I\'m Mirshod Allaberganov. I\'m passionate '+ (stack === 'Front-End' ? ' Angular ' : stack ==='Back-End' ? ' Java ' : ' Java & Angular ')}}</p>
+        <p class="d-flex">{{'Developer based on Urganch, Uzbekistan '}} <i class="fas fa-location-dot roller slide" style="color: #b70000; font-size: 1rem; width: 24px; height: 24px; animation-delay: 1s;"></i></p>
+        <ul class="list-unstyled d-flex">
+          <li class="p-2"><a class="social" href="https://github.com/M1rix" target="_blank"><i class="fa-brands fa-github fs-4"></i></a></li>
+          <li class="p-2"><a class="social" href="https://instagram.com/m_irix" target="_blank"><i class="fa-brands fa-instagram fs-4"></i></a></li>
+          <li class="p-2"><a class="social" href="https://t.me/m_irix" target="_blank"><i class="fa-brands fa-telegram fs-4"></i></a></li>
+        </ul>
       </div>
       <p class="col-12 d-flex justify-content-start align-items-center">
-        <span>Tech Stack | </span>
-        <span class="stack" *ngIf="stack === 'Front-End' || stack === 'Full-Stack'">
-          <img src="./assets/img/logos/html.png" alt="html" [width]="48" class="cursor-pointer" >
-          <img src="./assets/img/logos/css.png" alt="css" [width]="48" class="cursor-pointer">
-          <img src="./assets/img/logos/bootstrap.png" alt="bootstrap" [width]="48" class="cursor-pointer">
-          <img src="./assets/img/logos/js.png" alt="js" [width]="48" class="cursor-pointer">
-          <img src="./assets/img/logos/ts.png" alt="ts" [width]="48" class="cursor-pointer">
-          <img src="./assets/img/logos/angular.png" alt="angular" [width]="48" class="cursor-pointer">
+        <span class="fw-bolder">Tech Stack &nbsp;&nbsp;| </span>
+        <span class="d-flex flex-column justify-content-start align-items-center w-75">
+          <span class="stack mb-3" *ngIf="stack === 'Full-Stack'">
+            <img src="./assets/img/logos/html.png" alt="html" [ngbTooltip]="'HTML'" [width]="48" class="title cursor-pointer" >
+            <img src="./assets/img/logos/css.png" alt="css" [ngbTooltip]="'CSS'" [width]="48" class="title cursor-pointer">
+            <img src="./assets/img/logos/bootstrap.png" alt="bootstrap" [ngbTooltip]="'Bootstrap'" [width]="48" class="title cursor-pointer rounded-3">
+            <img src="./assets/img/logos/js.png" alt="js" [ngbTooltip]="'Java Script'" [width]="48" class="title cursor-pointer rounded-3">
+            <img src="./assets/img/logos/ts.png" alt="ts" [ngbTooltip]="'Type Script'" [width]="48" class="title cursor-pointer rounded-3">
+            <img src="./assets/img/logos/angular.png" alt="angular" [ngbTooltip]="'Angular'" [width]="48" class="title cursor-pointer">
+          </span>
+          <span class="stack" *ngIf="stack === 'Full-Stack'">
+            <img src="./assets/img/logos/java.png" alt="java" [ngbTooltip]="'Java'" [width]="48" class="title cursor-pointer" >
+            <img src="./assets/img/logos/spring.png" alt="spring" [ngbTooltip]="'Spring Framework'" [width]="48" class="title cursor-pointer">
+            <img src="./assets/img/logos/api.png" alt="api" [ngbTooltip]="'REST API'" [width]="48" class="title cursor-pointer">
+            <img src="./assets/img/logos/sql.png" alt="sql" [ngbTooltip]="'SQL'" [width]="48" class="title cursor-pointer">
+            <img src="./assets/img/logos/postgres.png" alt="postgres" [ngbTooltip]="'PostgreSQL'" [width]="48" class="title cursor-pointer">
+            <span style="width: 48px; height: 48px"></span>
+          </span>
         </span>
       </p>
     </div>

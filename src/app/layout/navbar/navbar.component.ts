@@ -7,9 +7,10 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
   @Output() changeStack: EventEmitter<any> = new EventEmitter<any>();
+  @Output() changeNav: EventEmitter<any> = new EventEmitter<any>();
 
   allStack = ['Front-End','Back-End','Full-Stack'];
-  selectedStack = 'Front-End';
+  selectedStack = 'Full-Stack';
   stackForSelect: string[] = [];
   constructor() { }
 
@@ -21,6 +22,6 @@ export class NavbarComponent implements OnInit {
     this.selectedStack = stack;
     this.changeStack.emit(this.selectedStack);
     this.stackForSelect = this.allStack.filter(s=> s!== this.selectedStack);
-
+    window.document.getElementById('home')?.scrollIntoView({behavior:'smooth'});
   }
 }

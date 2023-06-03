@@ -1,4 +1,4 @@
 <div class="h-100 d-block">
-  <app-navbar (changeStack)="stack = $event"></app-navbar>
-  <app-main [stack]="stack"></app-main>
+  <app-navbar (changeStack)="stack = $event" (changeNav)="currentNav = $event"></app-navbar>
+  <app-main [stack]="stack" [currentNav]="currentNav"></app-main>
 </div>

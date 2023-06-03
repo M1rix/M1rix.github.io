@@ -1,11 +1,11 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-white z-index-3 px-5 shadow-none font-righteous sticky-top">
+<nav class="navbar navbar-expand-lg navbar-light bg-white z-index-3 shadow-none font-righteous sticky-top container pb-0" id="navbar">
   <div class="d-flex justify-content-start align-items-center">
-    <a class="navbar-brand font-weight-bold fs-3" href="" data-placement="bottom" target="_blank">
+    <a class="navbar-brand font-weight-bold fs-3" href="/" data-placement="bottom" target="_self">
       Mirix.dev
     </a>
-    <ng-select class="pt-2 px-2 cursor-pointer" [ngModel]="selectedStack" [clearable]="false" [searchable]="false" (ngModelChange)="handleStackForSelect($event)">
-      <ng-option class="py-2 px-1 mt-3" *ngFor="let stack of stackForSelect" [value]="stack">{{stack}}</ng-option>
-    </ng-select>
+<!--    <ng-select class="pt-2 px-2 cursor-pointer" [ngModel]="selectedStack" [clearable]="false" [searchable]="false" (ngModelChange)="handleStackForSelect($event)">-->
+<!--      <ng-option class="py-2 px-1 mt-3" *ngFor="let stack of stackForSelect" [value]="stack">{{stack}}</ng-option>-->
+<!--    </ng-select>-->
   </div>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
           aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
@@ -13,10 +13,10 @@
   </button>
   <div class="collapse navbar-collapse" id="navigation">
     <ul class="navbar-nav navbar-nav-hover ms-auto fs-1">
-      <li class="nav-link cursor-pointer fs-5"><a href="#home">Home</a></li>
-      <li class="nav-link cursor-pointer fs-5"><a href="#about">About</a></li>
-      <li class="nav-link cursor-pointer fs-5"><a href="#projects">Projects</a></li>
-      <li class="nav-link cursor-pointer fs-5"><a href="#contact">Contact</a></li>
+      <li class="nav-link cursor-pointer fs-5" (click)="changeNav.emit('home')"><a href="#home">Home</a></li>
+      <li class="nav-link cursor-pointer fs-5" (click)="changeNav.emit('about')"><a href="#about">About</a></li>
+      <li class="nav-link cursor-pointer fs-5" (click)="changeNav.emit('projects')"><a href="#projects">Projects</a></li>
+      <li class="nav-link cursor-pointer fs-5" (click)="changeNav.emit('contact')"><a href="#contact">Contact</a></li>
     </ul>
   </div>
 </nav>

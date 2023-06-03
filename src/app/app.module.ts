@@ -13,6 +13,9 @@ import { ContactComponent } from './layout/main/contact/contact.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -25,13 +28,16 @@ import { FormsModule } from '@angular/forms';
     ProjectsComponent,
     ContactComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FontAwesomeModule,
-    NgSelectModule,
-    FormsModule
-  ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        AppRoutingModule,
+        FontAwesomeModule,
+        NgSelectModule,
+        FormsModule,
+        HttpClientModule,
+        NgbModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -1,26 +1,17 @@
-<section id="projects" class="custom-vh-100 row">
-  <div class="col-7 d-flex justify-content-start align-items-center">
-    <div class="row">
-      <div class="col-12">
-        <div class="d-flex">
-          <span class="h1 roller">
-          <span class="text-black text-end" id="rolltext">
-            <span class="badge bg-gradient-primary">Back-End Java</span><br/>
-            <span class="badge bg-gradient-primary">Front-End</span><br/>
-            <span class="badge bg-gradient-primary">Full-Stack</span><br/>
-          </span>
-        </span>
-          <span class="h1 text-black">Developer 👋</span>
-        </div>
-        <p class="d-flex">Lorem ipsum dolor sit amet nobis.</p>
-      </div>
-      <p class="col-12">
-        Tech Stack | <span class="stack">Lorem ipsum.</span>| <span class="stack">Lorem ipsum.</span>| <span class="stack">Lorem ipsum.</span>| <span class="stack">Lorem ipsum.</span>
-      </p>
-    </div>
+<section id="projects">
+  <h3 class="w-100 text-center">Projects</h3>
+  <div class="d-flex justify-content-start align-items-center flex-column h-100">
+    <ul class="list-unstyled row justify-content-start align-items-start h-100">
+      <li class="col-md-4 col-12 mt-3" *ngFor="let project of projects">
+        <a href="{{project.url}}" target="_blank" class="w-100 h-100 nav-link card project">
+          <img src="{{project.image}}" class="card-img-top" alt="...">
+          <div class="card-header py-1 h4"> {{project.name}}</div>
+          <div class="card-body py-1"> {{project.description}}</div>
+          <div class="card-footer pt-0 pb-2">
+            <span *ngFor="let stack of project.stacks" [ngbTooltip]="stack.tooltip" class="fs-3 ms-2 social"><i class="{{stack.iconClass}}"></i></span>
+          </div>
+        </a>
+      </li>
+    </ul>
   </div>
-  <div class="col-5 d-flex justify-content-center align-items-center">
-    <span class="text-black h1">projects</span>
-  </div>
-
 </section>
