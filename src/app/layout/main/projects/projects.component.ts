@@ -36,37 +36,9 @@ export class ProjectsComponent implements OnInit {
     {
       name: 'Weatherix',
       description: 'Weatherix is a project that provides weather broadcasts',
-      url: 'https://pomodorix.github.io',
+      url: 'https://weatherix.github.io',
       image: 'https://raw.githubusercontent.com/M1rix/image-store/master/previews/weatherix.png',
       stacks: [s.html, s.css, s.bootstrap, s.fontAwesome, s.api]
-    },
-    {
-      name: 'Weatherix',
-      description: 'Weatherix is a project that provides weather broadcasts',
-      url: 'https://pomodorix.github.io',
-      image: 'https://raw.githubusercontent.com/M1rix/image-store/master/previews/weatherix.png',
-      stacks: [s.html, s.css, s.bootstrap, s.fontAwesome, s.api]
-    },
-    {
-      name: 'Pomodorix',
-      description: 'Pomodorix is a project that provides pomodoro functionality for better time management',
-      url: 'https://pomodorix.github.io',
-      image: 'https://raw.githubusercontent.com/M1rix/image-store/master/previews/pomodorix.png',
-      stacks: [s.html, s.css, s.bootstrap, s.angular]
-    },
-    {
-      name: 'Pomodorix',
-      description: 'Pomodorix is a project that provides pomodoro functionality for better time management',
-      url: 'https://pomodorix.github.io',
-      image: 'https://raw.githubusercontent.com/M1rix/image-store/master/previews/pomodorix.png',
-      stacks: [s.html, s.css, s.bootstrap, s.angular]
-    },
-    {
-      name: 'Pomodorix',
-      description: 'Pomodorix is a project that provides pomodoro functionality for better time management',
-      url: 'https://pomodorix.github.io',
-      image: 'https://raw.githubusercontent.com/M1rix/image-store/master/previews/pomodorix.png',
-      stacks: [s.html, s.css, s.bootstrap, s.angular]
     }
   ];
 

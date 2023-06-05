@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
 import { animate, style, transition, trigger } from '@angular/animations';
+import { delay } from 'rxjs';
 
 @Component({
   selector: 'app-main',
@@ -8,11 +9,11 @@ import { animate, style, transition, trigger } from '@angular/animations';
   animations: [
     trigger('slide', [
         transition(':enter', [
-          style({transform: 'translateX(-100%)', opacity: 0, zIndex: 100}),
-          animate('500ms')
+          style({transform: 'translateX(100%)', opacity: 0, zIndex: 100}),
+          animate('550ms')
         ]),
         transition(':leave', [
-          style({transform: 'translateX(100%)', zIndex: 200, opacity: 0}),
+          style({transform: 'translateX(100%)', opacity: 0, zIndex: 200}),
           animate('500ms')
         ])
       ]
