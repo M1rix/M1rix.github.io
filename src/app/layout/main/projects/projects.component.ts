@@ -22,7 +22,7 @@ export class ProjectsComponent implements OnInit {
     {
       name: 'Adviceslips',
       description: 'Get random advices from the system generated advice cards',
-      codeUrl: 'https://adviceslips.github.io',
+      codeUrl: 'https://github.com/M1rix/adviceslips',
       demoUrl: 'https://adviceslips.github.io',
       image: 'https://raw.githubusercontent.com/M1rix/image-store/master/previews/adviceslips.png',
       stacks: [s.html, s.css, s.bootstrap, s.fontAwesome, s.api]
@@ -30,7 +30,7 @@ export class ProjectsComponent implements OnInit {
     {
       name: 'Pomodorix',
       description: 'Pomodorix is a project that provides pomodoro functionality for better time management',
-      codeUrl: 'https://pomodorix.github.io',
+      codeUrl: 'https://github.com/M1rix/pomodorix',
       demoUrl: 'https://pomodorix.github.io',
       image: 'https://raw.githubusercontent.com/M1rix/image-store/master/previews/pomodorix.png',
       stacks: [s.html, s.css, s.bootstrap, s.fontAwesome, s.angular]
@@ -38,7 +38,7 @@ export class ProjectsComponent implements OnInit {
     {
       name: 'Weatherix',
       description: 'Weatherix is a project that provides weather broadcasts',
-      codeUrl: 'https://weatherix.github.io',
+      codeUrl: 'https://github.com/M1rix/weatherix',
       demoUrl: 'https://weatherix.github.io',
       image: 'https://raw.githubusercontent.com/M1rix/image-store/master/previews/weatherix.png',
       stacks: [s.html, s.css, s.bootstrap, s.fontAwesome, s.api]

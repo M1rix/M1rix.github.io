@@ -9,11 +9,7 @@ import { delay } from 'rxjs';
   animations: [
     trigger('slide', [
         transition(':enter', [
-          style({transform: 'translateX(100%)', opacity: 0, zIndex: 100}),
-          animate('550ms')
-        ]),
-        transition(':leave', [
-          style({transform: 'translateX(100%)', opacity: 0, zIndex: 200}),
+          style({transform: 'translateY(-100%)', opacity: 0, zIndex: 200}),
           animate('500ms')
         ])
       ]
