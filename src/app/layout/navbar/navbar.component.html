@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-white z-index-3 shadow-none font-righteous sticky-top pb-0"
+<nav class="navbar navbar-expand navbar-light bg-white z-index-3 shadow-none font-righteous sticky-top pb-0"
      id="navbar">
   <div class="container">
     <div class="d-flex justify-content-start align-items-center">
@@ -15,11 +15,10 @@
     </button>
     <div class="collapse navbar-collapse" id="navigation">
       <ul class="navbar-nav navbar-nav-hover ms-auto fs-1">
-        <li class="nav-link cursor-pointer fs-5" (click)="changeNav.emit('home')">Home</li>
-        <li class="nav-link cursor-pointer fs-5" (click)="changeNav.emit('about')">About</li>
-        <li class="nav-link cursor-pointer fs-5" (click)="changeNav.emit('projects')">Projects
-        </li>
-        <li class="nav-link cursor-pointer fs-5" (click)="changeNav.emit('contact')">Contact</li>
+        <li class="nav-link cursor-pointer fs-5" id="home" (click)="change($event, 'home')">Home</li>
+        <li class="nav-link cursor-pointer fs-5 text-monospace" id="projects" (click)="change($event, 'projects')">Projects</li>
+        <li class="nav-link cursor-pointer fs-5 text-monospace" id="about" (click)="change($event, 'about')">About</li>
+        <li class="nav-link cursor-pointer fs-5 text-monospace" id="contact" (click)="change($event, 'contact')">Contact</li>
       </ul>
     </div>
   </div>

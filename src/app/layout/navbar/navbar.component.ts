@@ -18,6 +18,17 @@ export class NavbarComponent implements OnInit {
     this.handleStackForSelect(this.selectedStack);
   }
 
+  change(event: any, page: string): void {
+    window.document.querySelectorAll('.nav-link').forEach(el => {
+     if(el.id === page){
+       el.classList.remove('text-monospace');
+     } else {
+       el.classList.add('text-monospace');
+     }
+    });
+    this.changeNav.emit(page);
+  }
+
   handleStackForSelect(stack: any): void {
     this.selectedStack = stack;
     this.changeStack.emit(this.selectedStack);
