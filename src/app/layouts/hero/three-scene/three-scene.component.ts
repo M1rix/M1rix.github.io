@@ -3,7 +3,8 @@ import {
   Component,
   ElementRef,
   HostListener,
-  Inject, Input,
+  Inject,
+  Input,
   OnInit,
   PLATFORM_ID,
   ViewChild
@@ -21,6 +22,7 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 export class ThreeSceneComponent implements OnInit, AfterViewInit {
   @ViewChild('canvas') private canvasRef!: ElementRef;
   @Input() nameDiv!: HTMLElement;
+  @Input() nicknameDiv!: HTMLElement;
 
   // Размеры сцены
   private get canvas(): HTMLCanvasElement {
@@ -38,6 +40,7 @@ export class ThreeSceneComponent implements OnInit, AfterViewInit {
 
   originalGeometry!: THREE.BufferGeometry;
   alternateGeometry!: THREE.BufferGeometry;
+  alternateGeometry2!: THREE.BufferGeometry;
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {
   }
@@ -116,18 +119,26 @@ export class ThreeSceneComponent implements OnInit, AfterViewInit {
 
   private createAlternateGeometry() {
     // Пример другой формы (куб)
-    const geometry = new THREE.BoxGeometry(1, 1, 3);
-    this.alternateGeometry = geometry;
+    this.alternateGeometry = new THREE.BoxGeometry(1, 1, 3);
+
+    // Пример другой формы (куб)
+    this.alternateGeometry2 = new THREE.SphereGeometry(1, 8, 15);
   }
 
   private addHoverListeners() {
-    const hoverDiv = this.nameDiv;
-
-    hoverDiv.addEventListener('mouseover', () => {
+    this.nameDiv.addEventListener('mouseover', () => {
       this.meshM.geometry = this.alternateGeometry;
     });
 
-    hoverDiv.addEventListener('mouseout', () => {
+    this.nameDiv.addEventListener('mouseout', () => {
+      this.meshM.geometry = this.originalGeometry;
+    });
+
+    this.nicknameDiv.addEventListener('mouseover', () => {
+      this.meshM.geometry = this.alternateGeometry2;
+    });
+
+    this.nicknameDiv.addEventListener('mouseout', () => {
       this.meshM.geometry = this.originalGeometry;
     });
   }
