@@ -5,141 +5,185 @@ import {
   HostListener,
   Inject,
   Input,
-  OnInit,
+  OnDestroy,
   PLATFORM_ID,
   ViewChild
 } from '@angular/core';
 import * as THREE from 'three';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-three-scene',
   standalone: true,
   imports: [],
   templateUrl: './three-scene.component.html',
-  styleUrl: './three-scene.component.scss'
+  styleUrls: ['./three-scene.component.scss']
 })
-export class ThreeSceneComponent implements OnInit, AfterViewInit {
+export class ThreeSceneComponent implements AfterViewInit, OnDestroy {
   @ViewChild('canvas') private canvasRef!: ElementRef;
   @Input() nameDiv!: HTMLElement;
   @Input() nicknameDiv!: HTMLElement;
 
-  // Размеры сцены
-  private get canvas(): HTMLCanvasElement {
-    return this.canvasRef.nativeElement;
-  }
+  private renderer!: THREE.WebGLRenderer;
+  private scene!: THREE.Scene;
+  private camera!: THREE.PerspectiveCamera;
+  private animationId!: number;
+  private isBrowser: boolean;
+  private mouseX = 0;
+  private mouseY = 0;
 
-  camera!: THREE.PerspectiveCamera;
-  renderer!: THREE.WebGLRenderer;
-  scene!: THREE.Scene;
-  controls!: OrbitControls;
-  meshM!: THREE.Mesh;
+  private object1!: THREE.Mesh;
+  private object2!: THREE.Mesh;
+  private object3!: THREE.Mesh;
+  private object4!: THREE.Mesh;
+  private object5!: THREE.Mesh;
 
-  mouseX: number = 0;
-  mouseY: number = 0;
-
-  originalGeometry!: THREE.BufferGeometry;
-  alternateGeometry!: THREE.BufferGeometry;
-  alternateGeometry2!: THREE.BufferGeometry;
-
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
-  }
-
-  ngOnInit() {
+  constructor(private el: ElementRef, @Inject(PLATFORM_ID) platformId: Object) {
+    this.isBrowser = isPlatformBrowser(platformId);
   }
 
   ngAfterViewInit() {
-    this.createScene();
-    this.createLight();
-    this.createAlternateGeometry();
-    this.startRenderingLoop();
-    this.addHoverListeners();
+    if (this.isBrowser) {
+      this.initThreeJS();
+      this.animate();
+      this.addHoverListeners();
+    }
   }
 
-  private createScene() {
+  ngOnDestroy() {
+    if (this.isBrowser) {
+      cancelAnimationFrame(this.animationId);
+      this.renderer.dispose();
+    }
+  }
+
+  private initThreeJS() {
+    const container = this.canvasRef.nativeElement;
+
+    // Проверка размеров контейнера
+    const width = container.clientWidth;
+    const height = container.clientHeight;
+
+    // Создание сцены
     this.scene = new THREE.Scene();
 
-    let aspectRatio = this.getAspectRatio();
-    this.camera = new THREE.PerspectiveCamera(75, aspectRatio, 0.1, 1000);
+    // Создание камеры
+    this.camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
     this.camera.position.z = 5;
 
-    // Инициализация рендера
-    this.renderer = new THREE.WebGLRenderer({ canvas: this.canvas, antialias: true, alpha: true });
-    this.renderer.setPixelRatio(devicePixelRatio);
-    this.renderer.setSize(this.canvas.clientWidth, this.canvas.clientHeight);
+    // Создание рендера
+    this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    this.renderer.setSize(width, height);
     this.renderer.setClearColor(0x000000, 0);
+    container.appendChild(this.renderer.domElement);
 
-    // Инициализация OrbitControls
-    this.controls = new OrbitControls(this.camera, this.renderer.domElement);
 
-    // Создание формы буквы "М"
-    const shape = new THREE.Shape();
-    shape.moveTo(-1, -1);
-    shape.lineTo(-0.5, 1);
-    shape.lineTo(0, 0);
-    shape.lineTo(0.5, 1);
-    shape.lineTo(1, -1);
-    shape.lineTo(0.5, -1);
-    shape.lineTo(0, 0);
-    shape.lineTo(-0.5, -1);
-    shape.lineTo(-1, -1);
-
-    // Создание геометрии и материала
-    const geometry = new THREE.ShapeGeometry(shape);
-    const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-    this.meshM = new THREE.Mesh(geometry, material);
-
-    this.originalGeometry = geometry;
-
-    this.scene.add(this.meshM);
-  }
-
-  private createLight() {
     let light = new THREE.AmbientLight(0x404040); // soft white light
     this.scene.add(light);
+
+    const directionalLight = new THREE.DirectionalLight(0xa8a8a8, 1);
+    directionalLight.position.set(-7, 4, 2); // Позиция света (x, y, z)
+    directionalLight.castShadow = true; // Включение отбрасывания теней для света
+    directionalLight.shadow.mapSize.width = 1024; // Размер теневой карты
+    directionalLight.shadow.mapSize.height = 1024;
+    directionalLight.shadow.camera.near = 0.5; // Ближняя и дальняя плоскости теневой карты
+    directionalLight.shadow.camera.far = 500;
+    this.scene.add(directionalLight);
+
+    // Добавление фигур
+    this.addShapes();
   }
 
-  private startRenderingLoop() {
-    let component: ThreeSceneComponent = this;
-    (function render() {
-      requestAnimationFrame(render);
-      component.controls.update();
+  private addShapes() {
+    // Функция для создания материала с градиентом
+    const createGradientMaterial = (color1: string, color2: string) => {
+      return new THREE.ShaderMaterial({
+        uniforms: {
+          color1: { value: new THREE.Color(color1) },
+          color2: { value: new THREE.Color(color2) },
+        },
+        vertexShader: `
+          varying vec2 vUv;
+          void main() {
+            vUv = uv;
+            gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+          }
+        `,
+        fragmentShader: `
+          uniform vec3 color1;
+          uniform vec3 color2;
+          varying vec2 vUv;
+          void main() {
+            gl_FragColor = vec4(mix(color1, color2, vUv.y), 1.0);
+          }
+        `,
+        side: THREE.DoubleSide,
+      });
+    };
 
-      // Обновление положения объекта в форме буквы "М" относительно курсора
-      component.meshM.position.x = (component.mouseX / window.innerWidth) * 2 - 1;
-      component.meshM.position.y = -(component.mouseY / window.innerHeight) * 2 + 1;
+    // 1 фигура
+    const geometry1 = new THREE.TorusGeometry(1, 0.5, 16, 100);
+    const material1 = createGradientMaterial('#ffa569', '#FFD700');
+    this.object1 = new THREE.Mesh(geometry1, material1);
+    this.object1.position.set(1, 3, 0);
+    this.object1.castShadow = true;
+    this.scene.add(this.object1);
 
-      component.renderer.render(component.scene, component.camera);
-    }());
+    // 2 фигура
+    const geometry2 = new THREE.TorusKnotGeometry(1, 0.4, 100, 16);
+    const material2 = createGradientMaterial('#00FF7F', '#8A2BE2');
+    this.object2 = new THREE.Mesh(geometry2, material2);
+    this.object2.position.set(5, -1, 0);
+    this.object2.castShadow = true;
+    this.scene.add(this.object2);
+
+    // 3 фигура
+    const geometry3 = new THREE.TorusKnotGeometry(1, 0.4, 100, 16);
+    const material3 = createGradientMaterial('#00FF7F', '#8A3BE3');
+    this.object3 = new THREE.Mesh(geometry3, material3);
+    this.object3.position.set(-3, 1, 0);
+    this.object3.castShadow = true;
+    this.scene.add(this.object3);
+
+    // 1 фигура
+    const geometry4 = new THREE.TorusGeometry(1, 0.5, 46, 80);
+    const material4 = createGradientMaterial('#ffa569', '#FFD700');
+    this.object4 = new THREE.Mesh(geometry4, material4);
+    this.object4.position.set(-6, -3, 0);
+    this.object4.castShadow = true;
+    this.scene.add(this.object4);
+
   }
 
-  private getAspectRatio(): number {
-    return this.canvas.clientWidth / this.canvas.clientHeight;
-  }
+  private animate() {
+    this.animationId = requestAnimationFrame(() => this.animate());
 
-  private createAlternateGeometry() {
-    // Пример другой формы (куб)
-    this.alternateGeometry = new THREE.BoxGeometry(1, 1, 3);
+    this.object1.position.x += Math.sin(Date.now() * 0.001) * 0.0005;
+    this.object1.position.y += Math.cos(Date.now() * 0.001) * 0.0005;
 
-    // Пример другой формы (куб)
-    this.alternateGeometry2 = new THREE.SphereGeometry(1, 8, 15);
+    this.object2.position.x += Math.cos(Date.now() * 0.001) * 0.0005;
+    this.object2.position.y += Math.sin(Date.now() * 0.001) * 0.0005;
+
+    this.object3.position.x += Math.sin(Date.now() * 0.001) * 0.0005;
+    this.object3.position.y += Math.cos(Date.now() * 0.001) * 0.0005;
+
+    this.object4.position.x += Math.cos(Date.now() * 0.001) * 0.0005;
+    this.object4.position.y += Math.sin(Date.now() * 0.001) * 0.0005;
+
+    this.renderer.render(this.scene, this.camera);
   }
 
   private addHoverListeners() {
     this.nameDiv.addEventListener('mouseover', () => {
-      this.meshM.geometry = this.alternateGeometry;
     });
 
     this.nameDiv.addEventListener('mouseout', () => {
-      this.meshM.geometry = this.originalGeometry;
     });
 
     this.nicknameDiv.addEventListener('mouseover', () => {
-      this.meshM.geometry = this.alternateGeometry2;
     });
 
     this.nicknameDiv.addEventListener('mouseout', () => {
-      this.meshM.geometry = this.originalGeometry;
     });
   }
 
