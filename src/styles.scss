@@ -46,6 +46,12 @@
   font-style: normal
 }
 
+
+::selection {
+  background-color: #78ffd1;
+  color: #606887;
+}
+
 body, html {
   background-color: #f3f2f9;
   color: var(--color);
