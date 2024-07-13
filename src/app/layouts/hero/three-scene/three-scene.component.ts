@@ -220,7 +220,15 @@ export class ThreeSceneComponent implements AfterViewInit, OnDestroy {
   }
 
   private addHoverListeners() {
+
+    const oldObject1 = this.object1;
+    const oldObject2 = this.object2;
+    const oldObject3 = this.object3;
+    const oldObject4 = this.object4;
+    const oldObject5 = this.object5;
+
     this.nameDiv.addEventListener('mouseover', () => {
+
       gsap.to(this.object1.position, {x: 1, y: 3, Z: 1, duration: 0.5});
       gsap.to(this.object2.position, {x: 5, y: 0, Z: 2, duration: 0.5});
       gsap.to(this.object3.position, {x: 1, y: 3, Z: 0, duration: 0.5});
@@ -231,6 +239,12 @@ export class ThreeSceneComponent implements AfterViewInit, OnDestroy {
     });
 
     this.nameDiv.addEventListener('mouseout', () => {
+      this.object1 = oldObject1;
+      this.object2 = oldObject2;
+      this.object3 = oldObject3;
+      this.object4 = oldObject4;
+      this.object5 = oldObject5;
+
       gsap.to(this.object1.position, {x: 1, y: 3, z: 0, duration: 0.5});
       gsap.to(this.object2.position, {x: 5, y: 0, z: 0, duration: 0.5});
       gsap.to(this.object3.position, {x: -6, y: 3, z: 0, duration: 0.5});
