@@ -11,6 +11,7 @@ import {
 } from '@angular/core';
 import * as THREE from 'three';
 import { isPlatformBrowser } from '@angular/common';
+import { gsap } from 'gsap';
 
 @Component({
   selector: 'app-three-scene',
@@ -73,7 +74,7 @@ export class ThreeSceneComponent implements AfterViewInit, OnDestroy {
 
     // Создание камеры
     this.camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
-    this.camera.position.z = 5;
+    this.camera.position.z = 6;
 
     // Создание рендера
     this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
@@ -194,20 +195,20 @@ export class ThreeSceneComponent implements AfterViewInit, OnDestroy {
     this.renderer.setSize(width, height);
     this.animationId = requestAnimationFrame(() => this.animate());
 
-    this.object1.position.x += Math.sin(Date.now() * 0.001) * 0.0005;
-    this.object1.position.y += Math.cos(Date.now() * 0.001) * 0.0005;
+    this.object1.position.x += Math.sin(Date.now() * 0.001) * 0.0008;
+    this.object1.position.y += Math.cos(Date.now() * 0.001) * 0.0008;
 
-    this.object2.position.x += Math.cos(Date.now() * 0.001) * 0.0005;
-    this.object2.position.y += Math.sin(Date.now() * 0.001) * 0.0005;
+    this.object2.position.x += Math.cos(Date.now() * 0.001) * 0.0008;
+    this.object2.position.y += Math.sin(Date.now() * 0.001) * 0.0008;
 
-    this.object3.position.x += Math.sin(Date.now() * 0.001) * 0.0005;
-    this.object3.position.y += Math.cos(Date.now() * 0.001) * 0.0005;
+    this.object3.position.x += Math.sin(Date.now() * 0.001) * 0.0008;
+    this.object3.position.y += Math.cos(Date.now() * 0.001) * 0.0008;
 
-    this.object4.position.x += Math.cos(Date.now() * 0.001) * 0.0005;
-    this.object4.position.y += Math.sin(Date.now() * 0.001) * 0.0005;
+    this.object4.position.x += Math.cos(Date.now() * 0.001) * 0.0008;
+    this.object4.position.y += Math.sin(Date.now() * 0.001) * 0.0008;
 
-    this.object5.position.x += Math.cos(Date.now() * 0.001) * 0.0005;
-    this.object5.position.y += Math.sin(Date.now() * 0.001) * 0.0005;
+    this.object5.position.x += Math.cos(Date.now() * 0.001) * 0.0008;
+    this.object5.position.y += Math.sin(Date.now() * 0.001) * 0.0008;
 
     this.object1.rotation.x += 0.0005;
     this.object1.rotation.y += 0.0005;
@@ -220,15 +221,34 @@ export class ThreeSceneComponent implements AfterViewInit, OnDestroy {
 
   private addHoverListeners() {
     this.nameDiv.addEventListener('mouseover', () => {
+      gsap.to(this.object1.position, {x: 1, y: 3, Z: 1, duration: 0.5});
+      gsap.to(this.object2.position, {x: 5, y: 0, Z: 2, duration: 0.5});
+      gsap.to(this.object3.position, {x: 1, y: 3, Z: 0, duration: 0.5});
+      gsap.to(this.object4.position, {x: 5, y: 0, Z: -2, duration: 0.5});
+      gsap.to(this.object5.position, {x: 5, y: 1, Z: -1, duration: 0.5});
+
+      gsap.to(this.object5.position, {x: 1, y: 1, z: 1, duration: 0.5})
     });
 
     this.nameDiv.addEventListener('mouseout', () => {
+      gsap.to(this.object1.position, {x: 1, y: 3, z: 0, duration: 0.5});
+      gsap.to(this.object2.position, {x: 5, y: 0, z: 0, duration: 0.5});
+      gsap.to(this.object3.position, {x: -6, y: 3, z: 0, duration: 0.5});
+      gsap.to(this.object4.position, {x: 1, y: -3, z: 0, duration: 0.5});
+      gsap.to(this.object5.position, {x: -6, y: -2, z: 0, duration: 0.5});
+
+      gsap.to(this.object5.scale, {x: 0.7, y: 0.7, z: 0.7, duration: 0.5})
     });
 
     this.nicknameDiv.addEventListener('mouseover', () => {
     });
 
     this.nicknameDiv.addEventListener('mouseout', () => {
+      this.object1.position.set(1, 3, 0);
+      this.object2.position.set(5, 0, 0);
+      this.object3.position.set(-6, 3, 0);
+      this.object4.position.set(1, -3, 0);
+      this.object5.position.set(-6, -2, 0);
     });
   }
 
