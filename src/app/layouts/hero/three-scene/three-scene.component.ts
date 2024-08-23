@@ -123,7 +123,7 @@ export class ThreeSceneComponent implements AfterViewInit, OnDestroy {
 
     // 1 фигура
     const geometry1 = new THREE.TorusGeometry(1, 0.5, 16, 100);
-    const material1 = createGradientMaterial('#ffa569', '#FFD700');
+    const material1 = createGradientMaterial('rgba(255,165,105,0.6)', '#FFD700');
     this.object1 = new THREE.Mesh(geometry1, material1);
     this.object1.position.set(1, 3, 0);
     this.object1.castShadow = true;
@@ -131,7 +131,7 @@ export class ThreeSceneComponent implements AfterViewInit, OnDestroy {
 
     // 2 фигура
     const geometry2 = new THREE.TorusKnotGeometry(1, 0.4, 100, 16);
-    const material2 = createGradientMaterial('#00FF7F', '#8A2BE2');
+    const material2 = createGradientMaterial('rgba(0,255,127,0.6)', 'rgba(138,43,226,0.6)');
     this.object2 = new THREE.Mesh(geometry2, material2);
     this.object2.position.set(5, -1, 0);
     this.object2.castShadow = true;
@@ -139,15 +139,15 @@ export class ThreeSceneComponent implements AfterViewInit, OnDestroy {
 
     // 3 фигура
     const geometry3 = new THREE.TorusKnotGeometry(1, 0.4, 100, 16);
-    const material3 = createGradientMaterial('#00FF7F', '#8A3BE3');
+    const material3 = createGradientMaterial('rgba(0,255,127,0.6)', 'rgba(138,59,227,0.6)');
     this.object3 = new THREE.Mesh(geometry3, material3);
-    this.object3.position.set(-3, 1, 0);
+    this.object3.position.set(-8, 1, -4);
     this.object3.castShadow = true;
     this.scene.add(this.object3);
 
     // 1 фигура
     const geometry4 = new THREE.TorusGeometry(1, 0.5, 46, 80);
-    const material4 = createGradientMaterial('#ffa569', '#FFD700');
+    const material4 = createGradientMaterial('rgba(255,165,105,0.6)', 'rgba(255,215,0,0.6)');
     this.object4 = new THREE.Mesh(geometry4, material4);
     this.object4.position.set(-6, -3, 0);
     this.object4.castShadow = true;
