@@ -4,46 +4,65 @@
 @tailwind utilities;
 
 
+:root{
+  --left-right-margin: 240px;
+  --left-right-internal-margin: 24px;
+  --top-margin: 240px;
+  --top-margin-mobile: 40vh;
+  --top-internal-margin: 24px;
+  --border-radius: 48px;
+  --border: 2px;
+  --border-radius-content: 0;
+  --background-color: #f3f2f9;
+  --color: #606887;
+}
+
 @font-face {
   font-family: studiofeixen-variable;
-  src: url("assets/fonts/studio-feixen-sans-variable.woff2") format("woff2"),url("assets/fonts/studio-feixen-sans-variable.ttf") format("truetype");
+  src: url("assets/fonts/studio-feixen-sans-variable.woff2") format("woff2"), url("assets/fonts/studio-feixen-sans-variable.ttf") format("truetype");
   font-weight: 400;
   font-style: normal
 }
 
 @font-face {
   font-family: studiofeixen;
-  src: url("assets/fonts/StudioFeixenSans-Bold.eot") format("embedded-opentype"),url("assets/fonts/StudioFeixenSans-Bold.woff2") format("woff2"),url("assets/fonts/StudioFeixenSans-Bold.woff") format("woff"),url("assets/fonts/StudioFeixenSans-Bold.ttf") format("truetype");
+  src: url("assets/fonts/StudioFeixenSans-Bold.eot") format("embedded-opentype"), url("assets/fonts/StudioFeixenSans-Bold.woff2") format("woff2"), url("assets/fonts/StudioFeixenSans-Bold.woff") format("woff"), url("assets/fonts/StudioFeixenSans-Bold.ttf") format("truetype");
   font-weight: 700;
   font-style: normal
 }
 
 @font-face {
   font-family: studiofeixen;
-  src: url("assets/fonts/StudioFeixenSans-Book.eot") format("embedded-opentype"),url("assets/fonts/StudioFeixenSans-Book.woff2") format("woff2"),url("assets/fonts/StudioFeixenSans-Book.woff") format("woff"),url("assets/fonts/StudioFeixenSans-Book.ttf") format("truetype");
+  src: url("assets/fonts/StudioFeixenSans-Book.eot") format("embedded-opentype"), url("assets/fonts/StudioFeixenSans-Book.woff2") format("woff2"), url("assets/fonts/StudioFeixenSans-Book.woff") format("woff"), url("assets/fonts/StudioFeixenSans-Book.ttf") format("truetype");
   font-weight: 350;
   font-style: normal
 }
 
 @font-face {
   font-family: studiofeixen;
-  src: url("assets/fonts/StudioFeixenSans-Medium.eot") format("embedded-opentype"),url("assets/fonts/StudioFeixenSans-Medium.woff2") format("woff2"),url("assets/fonts/StudioFeixenSans-Medium.woff") format("woff"),url("assets/fonts/StudioFeixenSans-Medium.ttf") format("truetype");
+  src: url("assets/fonts/StudioFeixenSans-Medium.eot") format("embedded-opentype"), url("assets/fonts/StudioFeixenSans-Medium.woff2") format("woff2"), url("assets/fonts/StudioFeixenSans-Medium.woff") format("woff"), url("assets/fonts/StudioFeixenSans-Medium.ttf") format("truetype");
   font-weight: 500;
   font-style: normal
 }
 
 @font-face {
   font-family: studiofeixen;
-  src: url("assets/fonts/StudioFeixenSans-Regular.eot") format("embedded-opentype"),url("assets/fonts/StudioFeixenSans-Regular.woff2") format("woff2"),url("assets/fonts/StudioFeixenSans-Regular.woff") format("woff"),url("assets/fonts/StudioFeixenSans-Regular.ttf") format("truetype");
+  src: url("assets/fonts/StudioFeixenSans-Regular.eot") format("embedded-opentype"), url("assets/fonts/StudioFeixenSans-Regular.woff2") format("woff2"), url("assets/fonts/StudioFeixenSans-Regular.woff") format("woff"), url("assets/fonts/StudioFeixenSans-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal
 }
 
 @font-face {
   font-family: studiofeixen-writer;
-  src: url("assets/fonts/StudioFeixenSansWriter-Regular.eot") format("embedded-opentype"),url("assets/fonts/StudioFeixenSansWriter-Regular.woff2") format("woff2"),url("assets/fonts/StudioFeixenSansWriter-Regular.woff") format("woff"),url("assets/fonts/StudioFeixenSansWriter-Regular.ttf") format("truetype");
+  src: url("assets/fonts/StudioFeixenSansWriter-Regular.eot") format("embedded-opentype"), url("assets/fonts/StudioFeixenSansWriter-Regular.woff2") format("woff2"), url("assets/fonts/StudioFeixenSansWriter-Regular.woff") format("woff"), url("assets/fonts/StudioFeixenSansWriter-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal
+}
+
+
+::selection {
+  background-color: #78ffd1;
+  color: #606887;
 }
 
 body, html {
@@ -61,14 +80,21 @@ body, html {
   transition: .25s;
 }
 
-.cursor,.cursor-dot {
+p {
+  font-size: 1.25rem;
+  margin: 0;
+  font-variation-settings: "wght" 500,"wdth" 100;
+  text-transform: none
+}
+
+.cursor, .cursor-dot {
   position: fixed;
   pointer-events: none;
   top: 50%;
   left: 50%;
   border-radius: 50%;
   z-index: 999;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   -webkit-animation: .1s;
   animation: .1s;
   overflow: hidden
@@ -97,7 +123,7 @@ body, html {
   mix-blend-mode: multiply
 }
 
-.cursor-dot .body.dark,body.dark .cursor {
+.cursor-dot .body.dark, body.dark .cursor {
   background-color: #f3f2f9;
   mix-blend-mode: difference
 }
@@ -132,28 +158,28 @@ body.dark #nprogress .bar {
 }
 
 @-webkit-keyframes grain {
-  0%,to {
+  0%, to {
     transform: translate(0)
   }
 
   10% {
-    transform: translate(-5%,-10%)
+    transform: translate(-5%, -10%)
   }
 
   20% {
-    transform: translate(-15%,5%)
+    transform: translate(-15%, 5%)
   }
 
   30% {
-    transform: translate(7%,-25%)
+    transform: translate(7%, -25%)
   }
 
   40% {
-    transform: translate(-5%,25%)
+    transform: translate(-5%, 25%)
   }
 
   50% {
-    transform: translate(-15%,10%)
+    transform: translate(-15%, 10%)
   }
 
   60% {
@@ -165,37 +191,37 @@ body.dark #nprogress .bar {
   }
 
   80% {
-    transform: translate(3%,35%)
+    transform: translate(3%, 35%)
   }
 
   90% {
-    transform: translate(-10%,10%)
+    transform: translate(-10%, 10%)
   }
 }
 
 @keyframes grain {
-  0%,to {
+  0%, to {
     transform: translate(0)
   }
 
   10% {
-    transform: translate(-5%,-10%)
+    transform: translate(-5%, -10%)
   }
 
   20% {
-    transform: translate(-15%,5%)
+    transform: translate(-15%, 5%)
   }
 
   30% {
-    transform: translate(7%,-25%)
+    transform: translate(7%, -25%)
   }
 
   40% {
-    transform: translate(-5%,25%)
+    transform: translate(-5%, 25%)
   }
 
   50% {
-    transform: translate(-15%,10%)
+    transform: translate(-15%, 10%)
   }
 
   60% {
@@ -207,11 +233,11 @@ body.dark #nprogress .bar {
   }
 
   80% {
-    transform: translate(3%,35%)
+    transform: translate(3%, 35%)
   }
 
   90% {
-    transform: translate(-10%,10%)
+    transform: translate(-10%, 10%)
   }
 }
 
@@ -229,7 +255,7 @@ app-hero .intro-wrapper {
   position: relative;
   display: flex;
   flex-direction: column;
-  height: calc(calc(var(--innerVh, 1vh)*100) - 16rem);
+  height: calc(calc(var(--innerVh, 1vh) * 100) - 16rem);
   justify-content: center;
   margin: 0 var(--left-right-margin);
   text-align: center;
@@ -237,17 +263,17 @@ app-hero .intro-wrapper {
 
 app-hero .intro-wrapper .intro-text .intro-id {
   color: transparent;
-  font-family: studiofeixen,Arial,Helvetica,sans-serif;
+  font-family: studiofeixen, Arial, Helvetica, sans-serif;
   letter-spacing: .05rem;
   font-weight: 800;
   font-size: 2.5rem;
   -webkit-text-stroke: 2px #606887;
-  font-variation-settings: "wght" 800,"wdth" 100
+  font-variation-settings: "wght" 800, "wdth" 100
 }
 
 @media(max-width: 61.99em) {
   app-hero .intro-wrapper .intro-text .intro-id {
-    -webkit-text-stroke:1.25px #606887
+    -webkit-text-stroke: 1.25px #606887
   }
 }
 
@@ -256,12 +282,17 @@ app-hero .intro-wrapper .intro-text .name {
   white-space: nowrap;
   cursor: help;
   display: inline-block;
-  font-family: studiofeixen-variable,studiofeixen,Arial,Helvetica,sans-serif;
+  font-family: studiofeixen-variable, studiofeixen, Arial, Helvetica, sans-serif;
   font-weight: 400;
-  font-variation-settings: "wght" 800,"wdth" 125;
+  font-variation-settings: "wght" 800, "wdth" 125;
   letter-spacing: normal;
   color: #606887;
+  z-index: 0;
   -webkit-text-stroke: 0;
+
+  &:hover .wave-wrapper .wave {
+    animation: moveRight 1s linear infinite;
+  }
 }
 
 app-hero .intro-wrapper .intro-text .wave-wrapper {
@@ -270,7 +301,6 @@ app-hero .intro-wrapper .intro-text .wave-wrapper {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1
 }
 
 app-hero .intro-wrapper .intro-text .wave-wrapper .wave {
@@ -282,15 +312,25 @@ app-hero .intro-wrapper .intro-text .wave-wrapper .wave {
   bottom: 0;
   opacity: .5;
   width: 100%;
-  height: 50%
+  height: 50%;
+  z-index: -1;
+}
+
+@keyframes moveRight {
+  from {
+    background-position-x: 0;
+  }
+  to {
+    background-position-x: 100px;
+  }
 }
 
 app-hero .intro-wrapper .intro-text .intro-roles .intro-role {
-  font-variation-settings: "wght" 500,"wdth" 100
+  font-variation-settings: "wght" 500, "wdth" 100
 }
 
 app-hero .intro-wrapper .intro-text .intro-links {
-  margin-top: var(--top-internal-margin)
+  margin-top: var(--top-internal-margin);
 }
 
 app-hero .intro-wrapper .intro-text .intro-links li {
@@ -298,9 +338,39 @@ app-hero .intro-wrapper .intro-text .intro-links li {
   margin-left: var(--left-right-internal-margin)
 }
 
+.link-wrapper {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  overflow-x: hidden;
+  &:hover {
+    .link-underline {
+      transform: translateX(0) translateZ(0) !important;
+    }
+  }
+}
+
+.link-wrapper .link {
+  width: auto;
+  margin-bottom: 3px;
+  white-space: nowrap
+}
+
+.link-wrapper .link-underline {
+  position: relative;
+  width: 100%;
+  height: var(--border);
+  margin-bottom: 6px;
+  bottom: 0;
+  left: 0;
+  background-color: #606887;
+  transform-origin: bottom right;
+  transition: transform .25s ease-out
+}
+
 @media(max-width: 47.99em) {
   app-hero .intro-wrapper .intro-text .intro-links li {
-    margin:0 var(--left-right-internal-margin)
+    margin: 0 var(--left-right-internal-margin)
   }
 }
 
@@ -314,7 +384,7 @@ body.dark app-hero .intro-wrapper .intro-text .intro-id {
 
 @media(max-width: 61.99em) {
   body.dark app-hero .intro-wrapper .intro-text .intro-id {
-    -webkit-text-stroke:1.25px #aab2d1
+    -webkit-text-stroke: 1.25px #aab2d1
   }
 }
 
