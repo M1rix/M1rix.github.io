@@ -224,50 +224,64 @@ export class ThreeSceneComponent implements AfterViewInit, OnDestroy {
     this.renderer.render(this.scene, this.camera);
   }
 
-  private addHoverListeners() {
+  private moveObjectsToPosition(position: { x: number, y: number, z: number }): void {
+    gsap.to(this.object1.position, { ...position, duration: 0.5 });
+    gsap.to(this.object2.position, { ...position, duration: 0.5 });
+    gsap.to(this.object3.position, { ...position, duration: 0.5 });
+    gsap.to(this.object4.position, { ...position, duration: 0.5 });
+    gsap.to(this.object5.position, { ...position, duration: 0.5 });
+  }
 
-    const oldObject1 = this.object1;
-    const oldObject2 = this.object2;
-    const oldObject3 = this.object3;
-    const oldObject4 = this.object4;
-    const oldObject5 = this.object5;
+  private rotateObjects(rotationSpeed: number): void {
+    gsap.to(this.object1.rotation, { y: "+=6.28", repeat: -1, duration: rotationSpeed, ease: "linear" });
+    gsap.to(this.object2.rotation, { y: "+=6.28", repeat: -1, duration: rotationSpeed, ease: "linear" });
+    gsap.to(this.object3.rotation, { y: "+=6.28", repeat: -1, duration: rotationSpeed, ease: "linear" });
+    gsap.to(this.object4.rotation, { y: "+=6.28", repeat: -1, duration: rotationSpeed, ease: "linear" });
+    gsap.to(this.object5.rotation, { y: "+=6.28", repeat: -1, duration: rotationSpeed, ease: "linear" });
+  }
+
+  private addHoverListeners() {
+    const topCenterPosition = {x: 0, y: 2, z: 0};
+    const bottomCenterPosition = {x: 0, y: -2, z: 0};
+    const rotationSpeed = 1; // Скорость вращения
 
     this.nameDiv.addEventListener('mouseover', () => {
+      this.moveObjectsToPosition(topCenterPosition);
+      this.rotateObjects(rotationSpeed);
+    });
 
-      gsap.to(this.object1.position, {x: 1, y: 3, Z: 1, duration: 0.5});
-      gsap.to(this.object2.position, {x: 5, y: 0, Z: 2, duration: 0.5});
-      gsap.to(this.object3.position, {x: 1, y: 3, Z: 0, duration: 0.5});
-      gsap.to(this.object4.position, {x: 5, y: 0, Z: -2, duration: 0.5});
-      gsap.to(this.object5.position, {x: 5, y: 1, Z: -1, duration: 0.5});
-
-      gsap.to(this.object5.position, {x: 1, y: 1, z: 1, duration: 0.5})
+    this.nicknameDiv.addEventListener('mouseover', () => {
+      this.moveObjectsToPosition(bottomCenterPosition);
+      this.rotateObjects(rotationSpeed);
     });
 
     this.nameDiv.addEventListener('mouseout', () => {
-      this.object1 = oldObject1;
-      this.object2 = oldObject2;
-      this.object3 = oldObject3;
-      this.object4 = oldObject4;
-      this.object5 = oldObject5;
-
       gsap.to(this.object1.position, {x: 1, y: 3, z: 0, duration: 0.5});
       gsap.to(this.object2.position, {x: 5, y: 0, z: 0, duration: 0.5});
       gsap.to(this.object3.position, {x: -6, y: 3, z: 0, duration: 0.5});
       gsap.to(this.object4.position, {x: 1, y: -3, z: 0, duration: 0.5});
       gsap.to(this.object5.position, {x: -6, y: -2, z: 0, duration: 0.5});
 
-      gsap.to(this.object5.scale, {x: 0.7, y: 0.7, z: 0.7, duration: 0.5})
+      // Остановка вращения
+      gsap.killTweensOf(this.object1.rotation);
+      gsap.killTweensOf(this.object2.rotation);
+      gsap.killTweensOf(this.object3.rotation);
+      gsap.killTweensOf(this.object4.rotation);
+      gsap.killTweensOf(this.object5.rotation);
     });
-
-    this.nicknameDiv.addEventListener('mouseover', () => {
-    });
-
     this.nicknameDiv.addEventListener('mouseout', () => {
-      this.object1.position.set(1, 3, 0);
-      this.object2.position.set(5, 0, 0);
-      this.object3.position.set(-6, 3, 0);
-      this.object4.position.set(1, -3, 0);
-      this.object5.position.set(-6, -2, 0);
+      gsap.to(this.object1.position, {x: 1, y: 3, z: 0, duration: 0.5});
+      gsap.to(this.object2.position, {x: 5, y: 0, z: 0, duration: 0.5});
+      gsap.to(this.object3.position, {x: -6, y: 3, z: 0, duration: 0.5});
+      gsap.to(this.object4.position, {x: 1, y: -3, z: 0, duration: 0.5});
+      gsap.to(this.object5.position, {x: -6, y: -2, z: 0, duration: 0.5});
+
+      // Остановка вращения
+      gsap.killTweensOf(this.object1.rotation);
+      gsap.killTweensOf(this.object2.rotation);
+      gsap.killTweensOf(this.object3.rotation);
+      gsap.killTweensOf(this.object4.rotation);
+      gsap.killTweensOf(this.object5.rotation);
     });
   }
 
