@@ -1,35 +1,21 @@
 <!doctype html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <title>Mirix</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="dark light"/>
-  <meta property="og:url" content="https://m1rix.github.io/"/>
-  <meta property="og:image" content="https://m1rix.github.io/openGraph_image.jpg"/>
-  <meta property="og:image:alt" content="Shapes from the website m1rix.github.io"/>
   <meta property="og:site_name" content="Mirix"/>
   <meta property="og:type" content="website"/>
   <meta property="og:title" content="Mirix"/>
   <meta property="og:description"
         content="Mirix / Mirshod Allaberganov is a back-end &amp; front-end web developer from Uzbekistan with an interest in playing computer games and listen musics"/>
   <meta property="og:locale" content="en_US"/>
-  <meta property="og:locale:alternate" content="fr_FR"/>
+  <meta property="og:locale:alternate" content="ru_RU"/>
 
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link href="assets/fonts/studio-feixen-sans-variable.woff2" rel="preload" as="font" crossorigin="" type="font/woff2"/>
-
-  <script>
-    const html = document.querySelector('html');
-    const isLightOrAuto = localStorage.getItem('hs_theme') === 'light' || (localStorage.getItem('hs_theme') === 'auto' && !window.matchMedia('(prefers-color-scheme: dark)').matches);
-    const isDarkOrAuto = localStorage.getItem('hs_theme') === 'dark' || (localStorage.getItem('hs_theme') === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches);
-
-    if (isLightOrAuto && html.classList.contains('dark')) html.classList.remove('dark');
-    else if (isDarkOrAuto && html.classList.contains('light')) html.classList.remove('light');
-    else if (isDarkOrAuto && !html.classList.contains('dark')) html.classList.add('dark');
-    else if (isLightOrAuto && !html.classList.contains('light')) html.classList.add('light');
-  </script>
+  <link rel="preload" href="/assets/fonts/studio-feixen-sans-variable.woff2" as="font" type="font/woff2" crossorigin>
 </head>
 <body class="w-screen h-screen">
   <app-root></app-root>

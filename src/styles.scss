@@ -17,6 +17,23 @@
   --color: #606887;
 }
 
+.dark {
+  --background-color: #2b2b33;
+  --color: #f3f2f9;
+
+  .logo {
+    filter: brightness(0);
+  }
+
+  canvas {
+    filter: contrast(0.3);
+  }
+
+  app-hero .intro-wrapper .intro-text .wave-wrapper .wave {
+    opacity: 0.2;
+  }
+}
+
 @font-face {
   font-family: studiofeixen-variable;
   src: url("assets/fonts/studio-feixen-sans-variable.woff2") format("woff2"), url("assets/fonts/studio-feixen-sans-variable.ttf") format("truetype");
@@ -66,7 +83,7 @@
 }
 
 body, html {
-  background-color: #f3f2f9;
+  background-color: var(--background-color);
   color: var(--color);
   width: 100%;
   height: auto;
@@ -245,7 +262,9 @@ body.dark .noise {
   opacity: .2
 }
 
-app-hero {
+app-hero,
+app-projects,
+app-me {
   width: 100%;
   height: inherit;
   justify-content: space-around;
@@ -343,6 +362,7 @@ app-hero .intro-wrapper .intro-text .intro-links li {
   width: -moz-fit-content;
   width: fit-content;
   overflow-x: hidden;
+  cursor: pointer;
   &:hover {
     .link-underline {
       transform: translateX(0) translateZ(0) !important;

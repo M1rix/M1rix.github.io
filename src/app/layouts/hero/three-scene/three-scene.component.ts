@@ -22,8 +22,10 @@ import { gsap } from 'gsap';
 })
 export class ThreeSceneComponent implements AfterViewInit, OnDestroy {
   @ViewChild('canvas') private canvasRef!: ElementRef;
-  @Input() nameDiv!: HTMLElement;
-  @Input() nicknameDiv!: HTMLElement;
+  @Input() classes: string = '';
+  @Input() nameDiv?: HTMLElement;
+  @Input() nicknameDiv?: HTMLElement;
+  @Input() rotationSpeed: number = 1;
 
   private renderer!: THREE.WebGLRenderer;
   private scene!: THREE.Scene;
@@ -156,8 +158,7 @@ export class ThreeSceneComponent implements AfterViewInit, OnDestroy {
     const geometry3 = new THREE.TorusKnotGeometry(1, 0.4, 100, 16);
     const material3 = createGradientMaterial('#D1B8FF', '#95EFFF');
     this.object3 = new THREE.Mesh(geometry3, material3);
-    this.object3.position.set(-8, 1, -4);
-
+    this.object3.position.set(-6, 3, 0);
     this.object3.castShadow = true;
     this.scene.add(this.object3);
 
@@ -177,15 +178,15 @@ export class ThreeSceneComponent implements AfterViewInit, OnDestroy {
     this.scene.add(this.object5);
 
     // Добавление точечных источников света для создания бликов
-    this.light1 = new THREE.PointLight(0xffffff, 1, 100);
+    this.light1 = new THREE.PointLight(0xfffccc, 1, 100);
     this.light1.position.set(5, 5, 5);
     this.scene.add(this.light1);
 
-    this.light2 = new THREE.PointLight(0xffffff, 1, 100);
+    this.light2 = new THREE.PointLight(0xfffccc, 1, 100);
     this.light2.position.set(-5, -5, -5);
     this.scene.add(this.light2);
 
-    this.light3 = new THREE.PointLight(0xffffff, 1, 100);
+    this.light3 = new THREE.PointLight(0xfffccc, 1, 100);
     this.light3.position.set(0, 5, -5);
     this.scene.add(this.light3);
   }
@@ -215,11 +216,20 @@ export class ThreeSceneComponent implements AfterViewInit, OnDestroy {
     this.object5.position.x += Math.cos(Date.now() * 0.001) * 0.0008;
     this.object5.position.y += Math.sin(Date.now() * 0.001) * 0.0008;
 
-    this.object1.rotation.x += 0.0005;
-    this.object1.rotation.y += 0.0005;
+    this.object1.rotation.x += Math.cos(Date.now() * 0.001) * 0.0005;
+    this.object1.rotation.y += Math.cos(Date.now() * 0.001) * 0.0005;
 
-    this.object4.rotation.x += 0.0005;
-    this.object4.rotation.y += 0.0005;
+    this.object2.rotation.x += Math.cos(Date.now() * 0.001) * 0.0005;
+    this.object2.rotation.y += Math.cos(Date.now() * 0.001) * 0.0005;
+
+    this.object3.rotation.x += Math.cos(Date.now() * 0.001) * 0.0005;
+    this.object3.rotation.y += Math.cos(Date.now() * 0.001) * 0.0005;
+
+    this.object4.rotation.x += Math.cos(Date.now() * 0.001) * 0.0005;
+    this.object4.rotation.y += Math.cos(Date.now() * 0.001) * 0.0005;
+
+    this.object5.rotation.x += Math.cos(Date.now() * 0.001) * 0.0005;
+    this.object5.rotation.y += Math.cos(Date.now() * 0.001) * 0.0005;
 
     this.renderer.render(this.scene, this.camera);
   }
@@ -243,19 +253,18 @@ export class ThreeSceneComponent implements AfterViewInit, OnDestroy {
   private addHoverListeners() {
     const topCenterPosition = {x: 0, y: 2, z: 0};
     const bottomCenterPosition = {x: 0, y: -2, z: 0};
-    const rotationSpeed = 1; // Скорость вращения
 
-    this.nameDiv.addEventListener('mouseover', () => {
+    this.nameDiv?.addEventListener('mouseover', () => {
       this.moveObjectsToPosition(topCenterPosition);
-      this.rotateObjects(rotationSpeed);
+      this.rotateObjects(this.rotationSpeed);
     });
 
-    this.nicknameDiv.addEventListener('mouseover', () => {
+    this.nicknameDiv?.addEventListener('mouseover', () => {
       this.moveObjectsToPosition(bottomCenterPosition);
-      this.rotateObjects(rotationSpeed);
+      this.rotateObjects(this.rotationSpeed);
     });
 
-    this.nameDiv.addEventListener('mouseout', () => {
+    this.nameDiv?.addEventListener('mouseout', () => {
       gsap.to(this.object1.position, {x: 1, y: 3, z: 0, duration: 0.5});
       gsap.to(this.object2.position, {x: 5, y: 0, z: 0, duration: 0.5});
       gsap.to(this.object3.position, {x: -6, y: 3, z: 0, duration: 0.5});
@@ -269,7 +278,7 @@ export class ThreeSceneComponent implements AfterViewInit, OnDestroy {
       gsap.killTweensOf(this.object4.rotation);
       gsap.killTweensOf(this.object5.rotation);
     });
-    this.nicknameDiv.addEventListener('mouseout', () => {
+    this.nicknameDiv?.addEventListener('mouseout', () => {
       gsap.to(this.object1.position, {x: 1, y: 3, z: 0, duration: 0.5});
       gsap.to(this.object2.position, {x: 5, y: 0, z: 0, duration: 0.5});
       gsap.to(this.object3.position, {x: -6, y: 3, z: 0, duration: 0.5});

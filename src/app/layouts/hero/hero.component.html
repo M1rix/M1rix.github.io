@@ -23,16 +23,13 @@
       <ul>
         <li style="opacity: 1; transform: none;" class="me-2">
           <div class="link-wrapper">
-<!--            <div class="link"><a href="/work">→ &lt;!&ndash; &ndash;&gt;See my projects</a></div>-->
-            <div><a href="#">→ <!-- -->See my projects</a></div>
+            <div><a [routerLink]="'/projects'">→ See my projects</a></div>
             <div class="link-underline" style="transform:translateX(-101%) translateZ(0)"></div>
           </div>
         </li>
         <li style="opacity: 1; transform: none;">
           <div class="link-wrapper">
-
-<!--            <div class="link"><a href="/about">→ &lt;!&ndash; &ndash;&gt;More about me</a></div>-->
-            <div><a href="#">→ <!-- -->More about me</a></div>
+            <div><a [routerLink]="'/me'">→ More about me</a></div>
             <div class="link-underline" style="transform:translateX(-101%) translateZ(0)"></div>
           </div>
         </li>
