@@ -1,5 +1,5 @@
 <app-header/>
-<div class="pt-36" [@routeAnimations]="getRouteState(outlet)">
+<div [@routeAnimations]="getRouteState(outlet)">
     <router-outlet #outlet="outlet"></router-outlet>
 </div>
 <div class="noise"></div>
