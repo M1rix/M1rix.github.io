@@ -40,6 +40,10 @@ export class ProjectsComponent {
   activeIndex = 0;
   touchStartY = 0;
 
+  trackByFn(index: number, item: any): number {
+    return index;
+  }
+
   @HostListener('touchstart', ['$event'])
   onTouchStart(event: TouchEvent) {
     this.touchStartY = event.touches[0].clientY;

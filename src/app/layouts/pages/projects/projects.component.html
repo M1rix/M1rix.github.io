@@ -4,7 +4,7 @@
   <div class="flex justify-center items-center overflow-hidden flex-col-reverse">
 
     <div
-      *ngFor="let project of projects; let i = index"
+      *ngFor="let project of projects; let i = index; trackBy: trackByFn"
       class="absolute left-36 w-full h-40 transform transition-all duration-1000 ease-in-out rounded-lg bg-cover bg-center flex align-top gap-20 opacity-0"
       [ngClass]="{
         'translate-y-[450px] opacity-0' : i > activeIndex,
