@@ -1,7 +1,8 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, HostListener } from '@angular/core';
+import { ChangeDetectorRef, Component, HostListener } from '@angular/core';
 import { ThreeSceneComponent } from '../../hero/three-scene/three-scene.component';
-import { CommonModule, NgClass, NgForOf } from '@angular/common';
+import { NgClass, NgForOf, NgStyle } from '@angular/common';
 import { gsap } from 'gsap';
+import { clearTimeout } from "node:timers";
 
 @Component({
   selector: 'app-projects',
@@ -9,7 +10,8 @@ import { gsap } from 'gsap';
   imports: [
     ThreeSceneComponent,
     NgClass,
-    NgForOf
+    NgForOf,
+    NgStyle
   ],
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.scss',
@@ -40,7 +42,7 @@ export class ProjectsComponent {
   activeIndex = 0;
   touchStartY = 0;
 
-  constructor(private cdr: ChangeDetectorRef) {}
+  scrollTimeout?: any;
 
   trackByFn(index: number, item: any): number {
     return index;
@@ -53,22 +55,26 @@ export class ProjectsComponent {
 
   @HostListener('touchmove', ['$event'])
   onTouchMove(event: TouchEvent) {
-    const touchEndY = event.touches[0].clientY;
-    const deltaY = touchEndY - this.touchStartY;
-
-    if (deltaY > 0) {
-      if (this.activeIndex < this.projects.length - 1) {
-        this.activeIndex++;
-        this.cdr.detectChanges();
-      }
-    } else {
-      if (this.activeIndex > 0) {
-        this.activeIndex--;
-        this.cdr.detectChanges();
-      }
+    if (this.scrollTimeout) {
+      window.clearTimeout(this.scrollTimeout);
     }
 
-    this.touchStartY = touchEndY; // Update start position
+    this.scrollTimeout = window.setTimeout(()=>{
+      const touchEndY = event.touches[0].clientY;
+      const deltaY = touchEndY - this.touchStartY;
+      if (deltaY > 0) {
+        console.log(deltaY)
+        if (this.activeIndex > 0) {
+          this.activeIndex--;
+        }
+      } else {
+        if (this.activeIndex < this.projects.length - 1) {
+          this.activeIndex++;
+        }
+      }
+
+      this.touchStartY = touchEndY;
+    }, 50);
   }
 
   @HostListener('wheel', ['$event'])
@@ -76,12 +82,10 @@ export class ProjectsComponent {
     if (event.deltaY > 0) {
       if (this.activeIndex < this.projects.length - 1) {
         this.activeIndex++;
-        this.cdr.detectChanges();
       }
     } else {
       if (this.activeIndex > 0) {
         this.activeIndex--;
-        this.cdr.detectChanges();
       }
     }
   }
@@ -95,7 +99,6 @@ export class ProjectsComponent {
       ease: 'power2.out',
       onUpdate: () => {
         this.activeIndex = Math.round(this.activeIndex);
-        this.cdr.detectChanges();
       },
     });
   }

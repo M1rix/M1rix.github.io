@@ -50,7 +50,7 @@ export class AppComponent implements OnInit {
   title = 'Mirix';
 
   ngOnInit(): void {
-    inject();
+    // inject();
   }
 
   getRouteState(outlet: RouterOutlet) {
