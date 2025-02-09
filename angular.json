@@ -37,8 +37,8 @@
           "configurations": {
             "production": {
               "optimization": {
-                "scripts": true,
-                "styles": false,
+                "scripts": false,
+                "styles": true,
                 "fonts": true
               },
               "budgets": [
