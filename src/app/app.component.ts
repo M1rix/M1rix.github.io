@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './layouts/header/header.component';
 import { ThreeSceneComponent } from "./layouts/hero/three-scene/three-scene.component";
 import { animate, query, style, transition, trigger } from '@angular/animations';
+import { inject } from '@vercel/analytics'
 
 export const routeAnimations = trigger('routeAnimations', [
   transition('* => HomePage', [
@@ -45,8 +46,12 @@ export const routeAnimations = trigger('routeAnimations', [
   styleUrl: './app.component.scss',
   animations: [routeAnimations]
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'Mirix';
+
+  ngOnInit(): void {
+    inject();
+  }
 
   getRouteState(outlet: RouterOutlet) {
     return outlet?.activatedRouteData?.['animation'] || '';
