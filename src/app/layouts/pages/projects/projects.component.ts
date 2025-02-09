@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, HostListener } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, HostListener } from '@angular/core';
 import { ThreeSceneComponent } from '../../hero/three-scene/three-scene.component';
 import { CommonModule } from '@angular/common';
 import { gsap } from 'gsap';
@@ -11,8 +11,7 @@ import { gsap } from 'gsap';
     CommonModule
   ],
   templateUrl: './projects.component.html',
-  styleUrl: './projects.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  styleUrl: './projects.component.scss'
 })
 export class ProjectsComponent {
 
@@ -40,6 +39,8 @@ export class ProjectsComponent {
   activeIndex = 0;
   touchStartY = 0;
 
+  constructor(private cdr: ChangeDetectorRef) {}
+
   trackByFn(index: number, item: any): number {
     return index;
   }
@@ -57,10 +58,12 @@ export class ProjectsComponent {
     if (deltaY > 0) {
       if (this.activeIndex < this.projects.length - 1) {
         this.activeIndex++;
+        this.cdr.detectChanges();
       }
     } else {
       if (this.activeIndex > 0) {
         this.activeIndex--;
+        this.cdr.detectChanges();
       }
     }
 
@@ -72,10 +75,12 @@ export class ProjectsComponent {
     if (event.deltaY > 0) {
       if (this.activeIndex < this.projects.length - 1) {
         this.activeIndex++;
+        this.cdr.detectChanges();
       }
     } else {
       if (this.activeIndex > 0) {
         this.activeIndex--;
+        this.cdr.detectChanges();
       }
     }
   }
@@ -89,6 +94,7 @@ export class ProjectsComponent {
       ease: 'power2.out',
       onUpdate: () => {
         this.activeIndex = Math.round(this.activeIndex);
+        this.cdr.detectChanges();
       },
     });
   }
