@@ -1,6 +1,6 @@
-import { Component, HostListener } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostListener } from '@angular/core';
 import { ThreeSceneComponent } from '../../hero/three-scene/three-scene.component';
-import { CommonModule } from "@angular/common";
+import { CommonModule } from '@angular/common';
 import { gsap } from 'gsap';
 
 @Component({
@@ -11,7 +11,8 @@ import { gsap } from 'gsap';
     CommonModule
   ],
   templateUrl: './projects.component.html',
-  styleUrl: './projects.component.scss'
+  styleUrl: './projects.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProjectsComponent {
 
@@ -37,6 +38,30 @@ export class ProjectsComponent {
   ];
 
   activeIndex = 0;
+  touchStartY = 0;
+
+  @HostListener('touchstart', ['$event'])
+  onTouchStart(event: TouchEvent) {
+    this.touchStartY = event.touches[0].clientY;
+  }
+
+  @HostListener('touchmove', ['$event'])
+  onTouchMove(event: TouchEvent) {
+    const touchEndY = event.touches[0].clientY;
+    const deltaY = touchEndY - this.touchStartY;
+
+    if (deltaY > 0) {
+      if (this.activeIndex < this.projects.length - 1) {
+        this.activeIndex++;
+      }
+    } else {
+      if (this.activeIndex > 0) {
+        this.activeIndex--;
+      }
+    }
+
+    this.touchStartY = touchEndY; // Update start position
+  }
 
   @HostListener('wheel', ['$event'])
   onScroll(event: WheelEvent) {
