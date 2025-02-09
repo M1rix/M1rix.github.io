@@ -96,7 +96,7 @@ export class ProjectsComponent {
     gsap.to(this, {
       duration: 1,
       activeIndex: index,
-      ease: 'power2.out',
+      ease: 'elastic.out',
       onUpdate: () => {
         this.activeIndex = Math.round(this.activeIndex);
       },
