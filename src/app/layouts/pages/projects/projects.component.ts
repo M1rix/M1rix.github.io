@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, HostListener } from '@angular/core';
 import { ThreeSceneComponent } from '../../hero/three-scene/three-scene.component';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgClass, NgForOf } from '@angular/common';
 import { gsap } from 'gsap';
 
 @Component({
@@ -8,10 +8,11 @@ import { gsap } from 'gsap';
   standalone: true,
   imports: [
     ThreeSceneComponent,
-    CommonModule
+    NgClass,
+    NgForOf
   ],
   templateUrl: './projects.component.html',
-  styleUrl: './projects.component.scss'
+  styleUrl: './projects.component.scss',
 })
 export class ProjectsComponent {
 
