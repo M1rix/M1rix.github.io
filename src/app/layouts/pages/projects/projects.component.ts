@@ -63,7 +63,6 @@ export class ProjectsComponent {
       const touchEndY = event.touches[0].clientY;
       const deltaY = touchEndY - this.touchStartY;
       if (deltaY > 0) {
-        console.log(deltaY)
         if (this.activeIndex > 0) {
           this.activeIndex--;
         }
@@ -79,15 +78,21 @@ export class ProjectsComponent {
 
   @HostListener('wheel', ['$event'])
   onScroll(event: WheelEvent) {
-    if (event.deltaY > 0) {
-      if (this.activeIndex < this.projects.length - 1) {
-        this.activeIndex++;
-      }
-    } else {
-      if (this.activeIndex > 0) {
-        this.activeIndex--;
-      }
+    if (this.scrollTimeout) {
+      window.clearTimeout(this.scrollTimeout);
     }
+
+    this.scrollTimeout = window.setTimeout(()=>{
+      if (event.deltaY > 0) {
+        if (this.activeIndex < this.projects.length - 1) {
+          this.activeIndex++;
+        }
+      } else {
+        if (this.activeIndex > 0) {
+          this.activeIndex--;
+        }
+      }
+    }, 50);
   }
 
   setActiveIndex(index: number) {
