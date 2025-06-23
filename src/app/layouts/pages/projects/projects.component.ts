@@ -1,8 +1,7 @@
-import { ChangeDetectorRef, Component, HostListener } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { ThreeSceneComponent } from '../../hero/three-scene/three-scene.component';
 import { NgClass, NgForOf, NgStyle } from '@angular/common';
 import { gsap } from 'gsap';
-import { clearTimeout } from "node:timers";
 
 @Component({
   selector: 'app-projects',
@@ -23,19 +22,33 @@ export class ProjectsComponent {
       title: 'adviceslips',
       description: 'Short info about project one.',
       details: 'Detailed information about this project.',
-      image: 'https://raw.githubusercontent.com/M1rix/image-store/refs/heads/master/previews/adviceslips.png'
+      image: 'https://raw.githubusercontent.com/M1rix/image-store/refs/heads/master/previews/adviceslips.png',
+      url: 'https://wowix.vercel.app/',
+      stacks: ['JavaScript', 'HTML', 'CSS', 'REST', 'API']
     },
     {
       title: 'pomodorix',
       description: 'Short info about project two.',
       details: 'Detailed information about this project.',
-      image: 'https://raw.githubusercontent.com/M1rix/image-store/refs/heads/master/previews/pomodorix.png'
+      image: 'https://raw.githubusercontent.com/M1rix/image-store/refs/heads/master/previews/pomodorix.png',
+      url: 'https://wowix.vercel.app/',
+      stacks: ['Angular', 'HTML', 'SCSS']
+    },
+    {
+      title: 'wowix',
+      description: 'Short info about project wowix.',
+      details: 'Detailed information about this project.',
+      image: 'https://raw.githubusercontent.com/M1rix/image-store/refs/heads/master/previews/wowix.jpg',
+      url: 'https://wowix.vercel.app/',
+      stacks: ['Angular', 'REST', 'API', 'Python', 'Flask']
     },
     {
       title: 'weatherix',
       description: 'Short info about project three.',
       details: 'Detailed information about this project.',
-      image: 'https://raw.githubusercontent.com/M1rix/image-store/refs/heads/master/previews/weatherix.png'
+      image: 'https://raw.githubusercontent.com/M1rix/image-store/refs/heads/master/previews/weatherix.png',
+      url: 'https://weatherix.github.io/',
+      stacks: ['Angular', 'HTML', 'SCSS', 'REST', 'API']
     },
   ];
 
@@ -48,18 +61,18 @@ export class ProjectsComponent {
     return index;
   }
 
-  @HostListener('touchstart', ['$event'])
+  @HostListener('window:touchstart', ['$event'])
   onTouchStart(event: TouchEvent) {
     this.touchStartY = event.touches[0].clientY;
   }
 
-  @HostListener('touchmove', ['$event'])
+  @HostListener('window:touchmove', ['$event'])
   onTouchMove(event: TouchEvent) {
     if (this.scrollTimeout) {
       window.clearTimeout(this.scrollTimeout);
     }
 
-    this.scrollTimeout = window.setTimeout(()=>{
+    this.scrollTimeout = window.setTimeout(() => {
       const touchEndY = event.touches[0].clientY;
       const deltaY = touchEndY - this.touchStartY;
       if (deltaY > 0) {
@@ -76,13 +89,13 @@ export class ProjectsComponent {
     }, 50);
   }
 
-  @HostListener('wheel', ['$event'])
+  @HostListener('window:wheel', ['$event'])
   onScroll(event: WheelEvent) {
     if (this.scrollTimeout) {
       window.clearTimeout(this.scrollTimeout);
     }
 
-    this.scrollTimeout = window.setTimeout(()=>{
+    this.scrollTimeout = window.setTimeout(() => {
       if (event.deltaY > 0) {
         if (this.activeIndex < this.projects.length - 1) {
           this.activeIndex++;
@@ -91,6 +104,28 @@ export class ProjectsComponent {
         if (this.activeIndex > 0) {
           this.activeIndex--;
         }
+      }
+    }, 50);
+  }
+
+  @HostListener('window:keyup', ['$event'])
+  onClickArrows(event: KeyboardEvent) {
+    if (this.scrollTimeout) {
+      window.clearTimeout(this.scrollTimeout);
+    }
+
+    this.scrollTimeout = window.setTimeout(() => {
+      switch (event.key) {
+        case "ArrowUp":
+          if (this.activeIndex > 0) {
+            this.activeIndex--;
+          }
+          break;
+        case "ArrowDown":
+          if (this.activeIndex < this.projects.length - 1) {
+            this.activeIndex++;
+          }
+          break;
       }
     }, 50);
   }

@@ -17,9 +17,15 @@
         <h2 class="uppercase text-special">{{ project.title }}</h2>
         <h6>{{ project.description }}</h6>
         <p class="text-gray-400">{{ project.details }}</p>
-
+        <div>
+          <span
+            *ngFor="let stack of project.stacks"
+            class="text-emerald-300 dark:text-[#78ffd1] text-xs font-medium me-2 px-2.5 py-0.5 rounded-full border border-emerald-200 dark:bg-transparent bg-white">
+            {{ stack }}
+          </span>
+        </div>
         <button
-          class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
+          class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 mt-2 border border-gray-400 rounded shadow">
           live preview
         </button>
       </div>
