@@ -19,20 +19,24 @@ export class ProjectsComponent {
 
   projects = [
     {
+      title: 'pomodorix',
+      description: 'Pomodorix is a minimalist Pomodoro timer web app that helps improve focus and productivity using the Pomodoro Technique.',
+      details: 'Pomodorix is a sleek, browser-based Pomodoro timer designed to support time management through structured work and break sessions.' +
+        ' It follows the traditional Pomodoro cycle—25 minutes of focused work followed by 5-minute short breaks and a longer break after several sessions. ' +
+        'The interface is clean and distraction-free, featuring intuitive controls to start, pause, and reset timers. Built with HTML, CSS, and JavaScript,' +
+        ' it runs entirely in the browser, requires no login, and stores session preferences using local storage. Ideal for students, developers, or anyone' +
+        ' wanting to boost productivity without installing extra software.',
+      image: 'https://raw.githubusercontent.com/M1rix/image-store/refs/heads/master/previews/pomodorix.png',
+      url: 'https://wowix.vercel.app/',
+      stacks: ['Angular', 'HTML', 'SCSS']
+    },
+    {
       title: 'adviceslips',
       description: 'Short info about project one.',
       details: 'Detailed information about this project.',
       image: 'https://raw.githubusercontent.com/M1rix/image-store/refs/heads/master/previews/adviceslips.png',
       url: 'https://wowix.vercel.app/',
       stacks: ['JavaScript', 'HTML', 'CSS', 'REST', 'API']
-    },
-    {
-      title: 'pomodorix',
-      description: 'Short info about project two.',
-      details: 'Detailed information about this project.',
-      image: 'https://raw.githubusercontent.com/M1rix/image-store/refs/heads/master/previews/pomodorix.png',
-      url: 'https://wowix.vercel.app/',
-      stacks: ['Angular', 'HTML', 'SCSS']
     },
     {
       title: 'wowix',
