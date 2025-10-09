@@ -52,7 +52,7 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           password: ${{ secrets.SSH_PASSWORD }}        # ИСПОЛЬЗУЕМ ключ, а не password
           port: 22
-          source: "dist/M1rix.github.io/browser/*"   # ← проверь имя проекта!
+          source: "dist/m1rix.github.io/browser/*"   # ← проверь имя проекта!
           target: "/var/www/html/mirix.uz/"
           overwrite: true
           strip_components: 3
