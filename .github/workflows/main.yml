@@ -3,7 +3,7 @@ name: Deploy MiriX Portfolio files to Server
 on:
   push:
     branches:
-      - master   # ← если у тебя main, поменяй здесь и в настройках repo
+      - qwe   # ← если у тебя main, поменяй здесь и в настройках repo
 
 jobs:
   deploy:
