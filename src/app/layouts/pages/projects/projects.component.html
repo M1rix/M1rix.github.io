@@ -25,7 +25,7 @@
         </div>
         <h6>{{ project.description }}</h6>
         <p class="text-gray-400 text-xs">{{ project.details }}</p>
-        <button
+        <a [href]="project.url"
           class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-1 px-4 mt-2 border border-gray-400 rounded-[12px] flex justify-center items-center shadow">
           <span class="mr-1">Live preview</span>
           <span class="text-xs">
@@ -38,7 +38,7 @@
               d="M12 6h-6a2 2 0 0 0 -2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-6"/><path d="M11 13l9 -9"/><path
               d="M15 4h5v5"/></svg>
           </span>
-        </button>
+        </a>
       </div>
     </div>
 

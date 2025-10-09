@@ -18,6 +18,14 @@ import { gsap } from 'gsap';
 export class ProjectsComponent {
 
   projects = [
+    // {
+    //   title: 'wowix',
+    //   description: 'Short info about project wowix.',
+    //   details: 'Detailed information about this project.',
+    //   image: 'https://raw.githubusercontent.com/M1rix/image-store/refs/heads/master/previews/wowix.jpg',
+    //   url: 'https://wowix.vercel.app/',
+    //   stacks: ['Angular', 'REST', 'API', 'Python', 'Flask']
+    // },
     {
       title: 'pomodorix',
       description: 'Pomodorix is a minimalist Pomodoro timer web app that helps improve focus and productivity using the Pomodoro Technique.',
@@ -27,7 +35,7 @@ export class ProjectsComponent {
         ' it runs entirely in the browser, requires no login, and stores session preferences using local storage. Ideal for students, developers, or anyone' +
         ' wanting to boost productivity without installing extra software.',
       image: 'https://raw.githubusercontent.com/M1rix/image-store/refs/heads/master/previews/pomodorix.png',
-      url: 'https://wowix.vercel.app/',
+      url: 'https://pomodorix.github.io/',
       stacks: ['Angular', 'HTML', 'SCSS']
     },
     {
@@ -37,14 +45,6 @@ export class ProjectsComponent {
       image: 'https://raw.githubusercontent.com/M1rix/image-store/refs/heads/master/previews/adviceslips.png',
       url: 'https://wowix.vercel.app/',
       stacks: ['JavaScript', 'HTML', 'CSS', 'REST', 'API']
-    },
-    {
-      title: 'wowix',
-      description: 'Short info about project wowix.',
-      details: 'Detailed information about this project.',
-      image: 'https://raw.githubusercontent.com/M1rix/image-store/refs/heads/master/previews/wowix.jpg',
-      url: 'https://wowix.vercel.app/',
-      stacks: ['Angular', 'REST', 'API', 'Python', 'Flask']
     },
     {
       title: 'weatherix',

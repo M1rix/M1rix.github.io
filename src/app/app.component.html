@@ -1,5 +1,5 @@
 <app-header/>
-<div [@routeAnimations]="getRouteState(outlet)">
+<div [@routeAnimations]="getRouteState(outlet)" class="hidden md:block">
     <router-outlet #outlet="outlet"></router-outlet>
 </div>
 <div class="noise"></div>
