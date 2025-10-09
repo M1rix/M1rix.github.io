@@ -1,0 +1,58 @@
+name: Deploy MiriX Portfolio files to Server
+
+on:
+  push:
+    branches:
+      - master   # ← если у тебя main, поменяй здесь и в настройках repo
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    concurrency:
+      group: deploy-prod
+      cancel-in-progress: true
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install deps
+        run: npm ci
+
+      - name: Build Angular (prod)
+        run: npm run build --if-present || ng build --configuration production
+
+      # 👇 Укажи правильный путь сборки
+      # Обычно: dist/<project-name>/browser
+      - name: Show dist
+        run: ls -la dist && find dist -maxdepth 2 -type d -print
+
+      # (опционально) очистим целевую директорию
+      - name: Clean target dir
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          password: ${{ secrets.SSH_PASSWORD }}      # приватный ключ в GitHub Secrets
+          port: 22
+          script: |
+            mkdir -p /var/www/html/mirix.uz
+            rm -rf /var/www/html/mirix.uz/*
+
+      - name: Upload via SCP
+        uses: appleboy/scp-action@v1
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          password: ${{ secrets.SSH_PASSWORD }}        # ИСПОЛЬЗУЕМ ключ, а не password
+          port: 22
+          source: "dist/M1rix.github.io/browser/*"   # ← проверь имя проекта!
+          target: "/var/www/html/mirix.uz/"
+          overwrite: true
+          strip_components: 3
