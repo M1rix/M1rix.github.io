@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm start)",
+      "Bash(git restore:*)",
+      "WebFetch(domain:apextech.uz)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
