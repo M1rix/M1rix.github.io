@@ -10,7 +10,7 @@
   border: 1px solid var(--mx-border);
   border-radius: var(--mx-radius-lg);
   padding: clamp(28px, 5vw, 50px);
-  background: rgb(255 253 248 / 0.72);
+  background: var(--mx-card-bg);
 }
 
 .about-copy {
@@ -37,7 +37,7 @@ p {
   display: grid;
   gap: 24px;
   background:
-    linear-gradient(145deg, rgb(220 234 243 / 0.68), transparent),
+    linear-gradient(145deg, rgb(31 111 235 / 0.12), transparent),
     var(--mx-surface);
 }
 

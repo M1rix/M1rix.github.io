@@ -32,12 +32,12 @@
 
 .button-link.primary {
   border-color: var(--mx-primary);
-  color: #fffdf8;
+  color: var(--mx-invert-text);
   background: var(--mx-primary);
 }
 
 .button-link:hover {
-  transform: translateY(-2px);
+  transform: translate3d(0, -2px, 0) scale(1.015);
 }
 
 .chip {
@@ -47,9 +47,27 @@
   border-radius: 999px;
   padding: 8px 12px;
   color: var(--mx-muted);
-  background: rgb(255 253 248 / 0.72);
+  background: var(--mx-card-bg);
   font-size: 0.84rem;
   font-weight: 750;
+}
+
+.reveal-item {
+  animation: reveal-up 720ms ease both;
+  animation-timeline: view();
+  animation-range: entry 0% cover 28%;
+}
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 28px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
 }
 
 .section-heading {

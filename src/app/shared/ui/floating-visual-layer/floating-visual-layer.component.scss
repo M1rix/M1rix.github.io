@@ -1,0 +1,151 @@
+.floating-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.floating-layer > * {
+  position: absolute;
+  will-change: transform;
+}
+
+.blob {
+  width: 220px;
+  aspect-ratio: 1;
+  border-radius: 999px;
+  opacity: 0.34;
+  filter: blur(8px);
+  animation: mx-drift 14s ease-in-out infinite alternate;
+}
+
+.blob-a {
+  top: 10%;
+  left: 3%;
+  background: var(--mx-accent-soft);
+}
+
+.blob-b {
+  right: 8%;
+  bottom: 14%;
+  background: rgb(183 121 31 / 0.14);
+  animation-duration: 17s;
+}
+
+.cube {
+  width: 34px;
+  aspect-ratio: 1;
+  border: 1px solid var(--mx-border);
+  border-radius: 10px;
+  background: var(--mx-card-bg);
+  box-shadow: 0 16px 40px rgb(21 21 21 / 0.08);
+  animation: mx-float-slow 8s ease-in-out infinite;
+}
+
+.cube-a {
+  top: 22%;
+  right: 20%;
+}
+
+.cube-b {
+  left: 14%;
+  bottom: 20%;
+  animation-duration: 11s;
+  animation-delay: -2s;
+}
+
+.code-pill {
+  border: 1px solid var(--mx-border);
+  border-radius: 999px;
+  padding: 8px 12px;
+  color: var(--mx-text);
+  background: var(--mx-card-bg);
+  box-shadow: 0 16px 40px rgb(21 21 21 / 0.08);
+  font-size: 0.78rem;
+  font-weight: 850;
+  animation: mx-float-slow 9s ease-in-out infinite;
+}
+
+.pill-a {
+  top: 16%;
+  left: 28%;
+}
+
+.pill-b {
+  top: 36%;
+  right: 10%;
+  animation-delay: -1.8s;
+}
+
+.pill-c {
+  right: 28%;
+  bottom: 16%;
+  animation-duration: 12s;
+}
+
+.pill-d {
+  left: 6%;
+  bottom: 36%;
+  animation-delay: -3s;
+}
+
+.arch-card {
+  width: 120px;
+  height: 70px;
+  border: 1px solid var(--mx-border);
+  border-radius: 18px;
+  background:
+    linear-gradient(90deg, rgb(31 111 235 / 0.16) 28%, transparent 28%),
+    var(--mx-visual-bg);
+  animation: mx-float-slow 13s ease-in-out infinite;
+}
+
+.arch-a {
+  top: 54%;
+  left: 22%;
+  transform: rotate(-4deg);
+}
+
+.arch-b {
+  right: 18%;
+  bottom: 34%;
+  transform: rotate(5deg);
+  animation-delay: -4s;
+}
+
+@keyframes mx-float-slow {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+
+  50% {
+    transform: translate3d(18px, -22px, 0) rotate(4deg);
+  }
+}
+
+@keyframes mx-drift {
+  0% {
+    transform: translate3d(-4%, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(6%, -4%, 0);
+  }
+}
+
+@media (max-width: 700px) {
+  .floating-layer.compact .blob-b,
+  .floating-layer.compact .cube-b,
+  .floating-layer.compact .pill-d,
+  .floating-layer.compact .arch-b {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .floating-layer > * {
+    animation: none !important;
+  }
+}

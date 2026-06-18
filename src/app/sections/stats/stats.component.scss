@@ -1,10 +1,13 @@
 .stats {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   border: 1px solid var(--mx-border);
   border-radius: var(--mx-radius-lg);
   overflow: hidden;
-  background: var(--mx-text);
+  background: var(--mx-panel-bg);
+  animation: reveal-up 720ms ease both;
+  animation-timeline: view();
+  animation-range: entry 0% cover 25%;
 }
 
 .stats div {
@@ -12,7 +15,7 @@
   gap: 12px;
   min-height: 210px;
   align-content: center;
-  border-right: 1px solid rgb(255 253 248 / 0.13);
+  border-right: 1px solid var(--mx-subtle-line);
   padding: 28px;
 }
 
@@ -21,14 +24,14 @@
 }
 
 strong {
-  color: var(--mx-accent-soft);
+  color: var(--mx-primary);
   font-size: clamp(2.8rem, 7vw, 6rem);
   line-height: 0.88;
 }
 
 span {
   max-width: 180px;
-  color: rgb(255 253 248 / 0.74);
+  color: var(--mx-panel-text);
   font-weight: 780;
   line-height: 1.45;
 }
@@ -51,6 +54,6 @@ span {
   .stats div {
     min-height: 150px;
     border-right: 0;
-    border-bottom: 1px solid rgb(255 253 248 / 0.13);
+    border-bottom: 1px solid var(--mx-subtle-line);
   }
 }

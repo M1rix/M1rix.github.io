@@ -2,7 +2,6 @@
   "name": "mirix-portfolio-webapp",
   "version": "1.0.0",
   "private": true,
-  "packageManager": "pnpm@10.12.1",
   "scripts": {
     "start": "ng serve",
     "build": "ng build",
@@ -12,11 +11,9 @@
     "e2e": "playwright test"
   },
   "dependencies": {
-    "@angular/animations": "^22.0.0",
     "@angular/common": "^22.0.0",
     "@angular/compiler": "^22.0.0",
     "@angular/core": "^22.0.0",
-    "@angular/forms": "^22.0.0",
     "@angular/platform-browser": "^22.0.0",
     "@angular/router": "^22.0.0",
     "rxjs": "~7.8.2",

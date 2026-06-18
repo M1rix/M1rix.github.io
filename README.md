@@ -5,14 +5,14 @@ Static-first Angular portfolio for Mirix / Mirshod Allaberganov. The current bio
 ## Run locally
 
 ```bash
-pnpm install
-pnpm start
+npm install
+npm start
 ```
 
 Build for deployment:
 
 ```bash
-pnpm build
+npm run build
 ```
 
 ## Replace mocked content

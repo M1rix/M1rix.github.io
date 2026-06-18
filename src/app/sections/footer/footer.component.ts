@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 import { footer, navItems } from '../../core/content/portfolio-content';
 
 @Component({
   selector: 'mx-footer',
   standalone: true,
+  imports: [RouterLink],
   styleUrl: './footer.component.scss',
   template: `
     <footer class="mx-container footer">
@@ -14,7 +16,7 @@ import { footer, navItems } from '../../core/content/portfolio-content';
       </div>
       <nav aria-label="Footer navigation">
         @for (item of navItems; track item.href) {
-          <a [href]="item.href">{{ item.label }}</a>
+          <a [routerLink]="['/']" [fragment]="item.href.slice(1)">{{ item.label }}</a>
         }
       </nav>
       <div class="follow">

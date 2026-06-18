@@ -3,9 +3,10 @@ export interface NavItem {
   href: string;
 }
 
-export interface PersonProfile {
+export interface PortfolioProfile {
   brand: string;
   fullName: string;
+  shortName: string;
   title: string;
   location: string;
   headline: string;
@@ -38,10 +39,13 @@ export interface StatItem {
   label: string;
 }
 
-export interface TimelineItem {
-  period: string;
+export interface ProfessionalPathItem {
+  date: string;
+  badge?: string;
   title: string;
   description: string;
+  linkLabel?: string;
+  linkUrl?: string;
 }
 
 export interface TestimonialItem {

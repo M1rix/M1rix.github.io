@@ -4,4 +4,5 @@ export const siteConfig = {
   telegram: '#',
   github: '#',
   linkedin: '#',
+  emailHref: 'mailto:hello@mirix.uz',
 } as const;

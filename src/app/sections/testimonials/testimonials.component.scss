@@ -1,19 +1,28 @@
-.review-grid {
-  columns: 3 280px;
-  column-gap: 18px;
+.review-marquee {
+  overflow: hidden;
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+
+.review-track {
+  display: flex;
+  width: max-content;
+  gap: 18px;
+  animation: testimonial-drift 36s linear infinite;
+}
+
+.review-marquee:hover .review-track {
+  animation-play-state: paused;
 }
 
 .review-card {
-  display: inline-grid;
-  width: 100%;
+  display: grid;
+  width: min(420px, calc(100vw - 48px));
   gap: 22px;
-  margin: 0 0 18px;
-  break-inside: avoid;
   border: 1px solid var(--mx-border);
-  border-radius: var(--mx-radius-md);
+  border-radius: var(--mx-radius-xl);
   padding: 24px;
-  background: rgb(255 253 248 / 0.74);
-  box-shadow: 0 16px 44px rgb(63 47 24 / 0.07);
+  background: var(--mx-card-bg);
+  box-shadow: 0 16px 44px rgb(21 21 21 / 0.07);
 }
 
 .review-card p {
@@ -43,12 +52,21 @@
   font-weight: 950;
 }
 
-.review-card strong,
-.review-card small {
-  min-width: 0;
-}
-
 .review-card small {
   color: var(--mx-muted);
   font-weight: 720;
+}
+
+@keyframes testimonial-drift {
+  to {
+    transform: translate3d(-33.333%, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .review-track {
+    width: auto;
+    flex-wrap: wrap;
+    animation: none;
+  }
 }

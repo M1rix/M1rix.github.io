@@ -3,21 +3,23 @@ import { Component } from '@angular/core';
 import { contact } from '../../core/content/portfolio-content';
 import { siteConfig } from '../../core/content/site-config';
 import { ButtonLinkComponent } from '../../shared/ui/button-link/button-link.component';
+import { FloatingVisualLayerComponent } from '../../shared/ui/floating-visual-layer/floating-visual-layer.component';
 
 @Component({
   selector: 'mx-contact-cta',
   standalone: true,
-  imports: [ButtonLinkComponent],
+  imports: [ButtonLinkComponent, FloatingVisualLayerComponent],
   styleUrl: './contact-cta.component.scss',
   template: `
     <section class="section mx-container" aria-labelledby="contact-title">
       <div class="contact-card">
+        <mx-floating-visual-layer density="compact" />
         <div>
           <p class="eyebrow">{{ contact.status }}</p>
           <h2 id="contact-title">{{ contact.title }}</h2>
           <p>{{ contact.description }}</p>
           <div class="actions">
-            <mx-button-link [href]="'mailto:' + siteConfig.email" variant="primary">{{ contact.primaryCta }}</mx-button-link>
+            <mx-button-link [href]="siteConfig.emailHref" variant="primary">{{ contact.primaryCta }}</mx-button-link>
             <mx-button-link href="#projects">{{ contact.secondaryCta }}</mx-button-link>
           </div>
         </div>

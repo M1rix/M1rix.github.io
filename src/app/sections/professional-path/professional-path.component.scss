@@ -16,6 +16,23 @@ time {
   font-weight: 900;
 }
 
+.timeline-meta {
+  display: grid;
+  align-content: start;
+  gap: 10px;
+}
+
+.timeline-meta span {
+  width: fit-content;
+  border: 1px solid var(--mx-border);
+  border-radius: 999px;
+  padding: 7px 10px;
+  color: var(--mx-muted);
+  background: var(--mx-card-bg);
+  font-size: 0.76rem;
+  font-weight: 850;
+}
+
 h3 {
   margin: 0 0 10px;
   font-size: clamp(1.35rem, 2vw, 2rem);
@@ -27,6 +44,13 @@ p {
   color: var(--mx-muted);
   font-size: 1.02rem;
   line-height: 1.72;
+}
+
+a {
+  display: inline-flex;
+  margin-top: 14px;
+  color: var(--mx-primary);
+  font-weight: 850;
 }
 
 @media (max-width: 680px) {

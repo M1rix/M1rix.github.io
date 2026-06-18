@@ -4,23 +4,24 @@ import {
   FooterContent,
   HeroContent,
   NavItem,
-  PersonProfile,
+  PortfolioProfile,
   PrincipleItem,
   StackGroup,
   StatItem,
   TestimonialItem,
-  TimelineItem,
+  ProfessionalPathItem,
 } from '../models/portfolio.models';
 
-export const person: PersonProfile = {
+export const person: PortfolioProfile = {
   brand: 'Mirix',
   fullName: 'Mirshod Allaberganov',
+  shortName: 'Mirix',
   title: 'Full-Stack Java & Angular Engineer',
-  location: 'Urganch, Uzbekistan',
+  location: 'Tashkent, Uzbekistan',
   headline: 'systems that ship.',
   subHeadline:
-    'I turn complex business workflows into reliable web platforms with Java, Spring Boot, Angular, and clean architecture.',
-  availability: 'Available for selected product and enterprise projects',
+    'I build reliable business web platforms with Java, Spring Framework, Angular, PostgreSQL, Docker, and production-minded engineering practices.',
+  availability: 'Available for selected enterprise and product projects',
 };
 
 export const navItems: NavItem[] = [
@@ -31,13 +32,13 @@ export const navItems: NavItem[] = [
 ];
 
 export const hero: HeroContent = {
-  eyebrow: 'Mirix · Java / Angular / Product Engineering',
+  eyebrow: 'Mirix · Full-Stack Engineering',
   headlineTop: 'systems that',
   headlineBottom: 's h i p.',
   description:
-    'I design and build admin platforms, enterprise workflows, and production-grade web systems where architecture, UX, and delivery speed matter.',
+    'I turn complex business workflows into reliable web platforms with Java, Spring Framework, Angular, PostgreSQL, and production-ready delivery practices.',
   primaryCta: 'Let’s work together',
-  secondaryCta: 'View selected work →',
+  secondaryCta: 'View full work →',
 };
 
 export const technologies = [
@@ -99,10 +100,9 @@ export const stackGroups: StackGroup[] = [
 
 export const about = {
   intro:
-    'I’m Mirshod Allaberganov, a full-stack engineer from Tashkent building practical software for real business operations: Java/Spring backend systems, Angular admin platforms, PostgreSQL-backed workflows, reporting flows, trading/custody platforms, and internal tools that teams actually use.',
+    'I am Mirshod Allaberganov, a full-stack engineer from Tashkent, focused on Java/Spring backend systems, Angular frontends, and production-ready business platforms.',
   cardTitle: 'Engineering that survives production pressure',
-  cardText:
-    'My work focuses on clear domain boundaries, maintainable UI architecture, reliable APIs, and predictable delivery. I care about the boring things that make products last: validation, permissions, auditability, performance, deployment, and support.',
+  cardText: 'Engineering that turns messy workflows into maintainable systems, clear interfaces, and observable production services.',
 };
 
 export const principles: PrincipleItem[] = [
@@ -115,89 +115,81 @@ export const principles: PrincipleItem[] = [
 ];
 
 export const stats: StatItem[] = [
-  { value: '12+', label: 'Projects and product modules' },
-  { value: '5+', label: 'Years building web systems' },
-  { value: '4', label: 'Main product directions' },
-  { value: '1', label: 'Engineering principle: ship clean' },
+  { value: '5+', label: 'Business systems' },
+  { value: '3+', label: 'Years of engineering practice' },
+  { value: '10+', label: 'Production workflows improved' },
 ];
 
-export const path: TimelineItem[] = [
+export const professionalPath: ProfessionalPathItem[] = [
   {
-    period: 'Present',
-    title: 'Full-Stack Engineer · Mirix',
+    date: 'Present',
+    badge: 'Full-stack',
+    title: 'Full-Stack Java & Angular Engineer',
     description:
-      'Building enterprise-grade web platforms with Java, Spring Boot, Angular, PostgreSQL, Docker, and role-based admin workflows.',
+      'Building business web platforms with Java, Spring Framework, Angular, PostgreSQL, Docker, and clean delivery practices.',
   },
   {
-    period: '2026',
-    title: 'Aurum Admin Platform',
+    date: '2026',
+    badge: 'Enterprise UI',
+    title: 'Aurum Admin Implementation',
     description:
-      'Designing admin-side flows for gold operations, compliance, finance, market controls, support, and audit visibility.',
+      'Working on admin-side workflows for operations, compliance, finance, market control, support, and audit responsibilities.',
   },
   {
-    period: '2025 - 2026',
-    title: 'Angular & JHipster Architecture Work',
+    date: '2026',
+    badge: 'Architecture',
+    title: 'JHipster + Angular Template Migration',
     description:
-      'Modernizing admin UI structures, separating custom app layers, improving frontend maintainability, and preparing generated projects for real delivery.',
+      'Structured a custom Angular webapp architecture around JHipster while keeping generated backend conventions maintainable.',
   },
   {
-    period: '2024 - 2025',
-    title: 'Reporting and Internal Tools',
+    date: '2025',
+    badge: 'Product',
+    title: 'Reportix Workflow System',
     description:
-      'Building production workflows for project reporting, user assignment, structured templates, and operational exports.',
+      'Designed and improved a reporting workflow for teams, structured daily updates, and export-ready communication.',
   },
   {
-    period: 'Earlier',
-    title: 'Java Backend Foundations',
+    date: 'Ongoing',
+    badge: 'Growth',
+    title: 'Senior Engineering Track',
     description:
-      'Developing backend discipline around persistence, API boundaries, validation, authentication, deployment, and database-driven business systems.',
+      'Focused on clean architecture, DDD, system design, observability, CI/CD, and production-grade engineering discipline.',
   },
 ];
 
 export const testimonials: TestimonialItem[] = [
   {
     quote:
-      'Mirix understands both the business workflow and the code. He does not just build screens - he questions the flow until it works in real operations.',
-    name: 'Mock Client A',
-    role: 'Operations Lead',
+      'Mirix thinks beyond the screen. He asks about workflow, data, roles, and failure cases before writing UI.',
+    name: 'Mock Product Lead',
+    role: 'Enterprise Workflow Project',
   },
   {
     quote:
-      'The strongest part of working with him was delivery discipline. Every feature had a clear boundary, clear behavior, and fewer surprises than expected.',
-    name: 'Mock Client B',
-    role: 'Product Manager',
+      'The strongest part was structure: clean pages, clear responsibilities, and implementation that the team could continue.',
+    name: 'Mock Engineering Manager',
+    role: 'Internal Platform',
   },
   {
     quote:
-      'He can move from database design to Angular UI without losing the system picture. That is rare and valuable for internal platforms.',
-    name: 'Mock Client C',
-    role: 'Engineering Manager',
+      'He connects backend constraints with frontend decisions instead of treating them as separate worlds.',
+    name: 'Mock Backend Lead',
+    role: 'Java/Spring System',
   },
   {
     quote:
-      'Fast, direct, and practical. He prefers fixing the architecture instead of hiding problems behind UI patches.',
-    name: 'Mock Client D',
-    role: 'Founder',
-  },
-  {
-    quote:
-      'The admin panel felt like it was designed for actual operators, not just for demo screenshots.',
-    name: 'Mock Client E',
-    role: 'Back Office Specialist',
-  },
-  {
-    quote:
-      'Reliable communication, clean implementation, and strong ownership from the first planning session to release.',
-    name: 'Mock Client F',
-    role: 'Team Lead',
+      'The UI became easier to understand because the domain model was clarified first.',
+    name: 'Mock Business Analyst',
+    role: 'Operations Product',
   },
 ];
 
 export const contact: ContactContent = {
   status: 'Available · Selected projects',
-  title: 'Interested in building something reliable?',
+  title: 'Interested in building reliable software?',
   description:
-    'I’m open to selected product, admin platform, and enterprise webapp work - especially where clean architecture and delivery discipline matter.',
+    'Complex workflow, admin platform, enterprise UI, or Java/Spring system - let’s talk.',
   primaryCta: 'Start a project',
   secondaryCta: 'See recent work →',
   slotsLabel: 'project slots this quarter',
@@ -206,12 +198,13 @@ export const contact: ContactContent = {
 
 export const footer: FooterContent = {
   brand: 'MIRIX',
-  copyright: '© 2026 Mirix. All rights reserved.',
-  note: 'Designed and built with care.',
+  copyright: '© 2026 Mirix. Built with Angular, Java discipline, and care.',
+  note: '',
   navigate: ['Home', 'Projects', 'Professional path', 'Testimonials'],
   follow: [
     { label: 'GitHub', href: siteConfig.github },
     { label: 'LinkedIn', href: siteConfig.linkedin },
     { label: 'Telegram', href: siteConfig.telegram },
+    { label: 'Email', href: siteConfig.emailHref },
   ],
 };

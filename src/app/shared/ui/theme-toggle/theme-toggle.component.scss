@@ -1,0 +1,69 @@
+.theme-toggle {
+  position: relative;
+  display: grid;
+  width: 42px;
+  height: 42px;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid var(--mx-border);
+  border-radius: 999px;
+  color: var(--mx-text);
+  background: var(--mx-control-bg);
+  cursor: pointer;
+  transition:
+    transform 180ms ease,
+    background 180ms ease,
+    border-color 180ms ease;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.04);
+  background: var(--mx-primary-soft);
+}
+
+.sun,
+.moon {
+  position: absolute;
+  width: 17px;
+  aspect-ratio: 1;
+  border-radius: 999px;
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease;
+}
+
+.sun {
+  border: 2px solid currentColor;
+  box-shadow:
+    0 -8px 0 -6px currentColor,
+    0 8px 0 -6px currentColor,
+    8px 0 0 -6px currentColor,
+    -8px 0 0 -6px currentColor;
+}
+
+.moon {
+  background: currentColor;
+  transform: translate3d(10px, -8px, 0) scale(0.65);
+  opacity: 0;
+}
+
+.moon::after {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  width: 15px;
+  aspect-ratio: 1;
+  border-radius: 999px;
+  background: var(--mx-control-bg);
+  content: '';
+}
+
+:host-context([data-theme='dark']) .sun {
+  transform: translate3d(-10px, 8px, 0) scale(0.65);
+  opacity: 0;
+}
+
+:host-context([data-theme='dark']) .moon {
+  transform: translate3d(0, 0, 0) scale(1);
+  opacity: 1;
+}

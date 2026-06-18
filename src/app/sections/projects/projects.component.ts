@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 import { projects } from '../../core/content/projects-content';
+import { ProjectVisualComponent } from '../../shared/ui/project-visual/project-visual.component';
 
 @Component({
   selector: 'mx-projects',
   standalone: true,
+  imports: [RouterLink, ProjectVisualComponent],
   styleUrl: './projects.component.scss',
   template: `
     <section id="projects" class="section mx-container" aria-labelledby="projects-title">
@@ -17,29 +20,23 @@ import { projects } from '../../core/content/projects-content';
       </div>
 
       <div class="project-grid">
-        @for (project of projects; track project.name) {
-          <article class="project-card" [attr.data-accent]="project.accent">
-            <div class="mockup" aria-hidden="true">
-              <span></span>
-              <span></span>
-              <span></span>
-              <div></div>
-            </div>
+        @for (project of projects; track project.slug) {
+          <a class="project-card reveal-item" [routerLink]="['/projects', project.slug]">
+            <mx-project-visual [project]="project" />
             <div class="project-body">
               <div class="project-kicker">
                 <span>{{ project.role }}</span>
                 <span>{{ project.year }}</span>
               </div>
-              <h3>{{ project.name }}</h3>
-              <p class="tagline">{{ project.tagline }}</p>
-              <p>{{ project.description }}</p>
+              <p class="promise">{{ project.promise }}</p>
+              <h3>{{ project.title }}</h3>
               <div class="tags">
                 @for (tag of project.tags; track tag) {
                   <span class="chip">{{ tag }}</span>
                 }
               </div>
             </div>
-          </article>
+          </a>
         }
       </div>
     </section>

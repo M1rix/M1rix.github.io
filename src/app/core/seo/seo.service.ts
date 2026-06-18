@@ -21,4 +21,17 @@ export class SeoService {
     this.meta.updateTag({ name: 'twitter:title', content: pageTitle });
     this.meta.updateTag({ name: 'twitter:description', content: description });
   }
+
+  setProjectMeta(title: string, description: string, path: string): void {
+    const pageTitle = `${title} Case Study | Mirix`;
+    const url = `${siteConfig.siteUrl}${path}`;
+
+    this.title.setTitle(pageTitle);
+    this.meta.updateTag({ name: 'description', content: description });
+    this.meta.updateTag({ property: 'og:title', content: pageTitle });
+    this.meta.updateTag({ property: 'og:description', content: description });
+    this.meta.updateTag({ property: 'og:url', content: url });
+    this.meta.updateTag({ name: 'twitter:title', content: pageTitle });
+    this.meta.updateTag({ name: 'twitter:description', content: description });
+  }
 }
