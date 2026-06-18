@@ -130,13 +130,6 @@ export const professionalPath: ProfessionalPathItem[] = [
   },
   {
     date: '2026',
-    badge: 'Enterprise UI',
-    title: 'Aurum Admin Implementation',
-    description:
-      'Working on admin-side workflows for operations, compliance, finance, market control, support, and audit responsibilities.',
-  },
-  {
-    date: '2026',
     badge: 'Architecture',
     title: 'JHipster + Angular Template Migration',
     description:
