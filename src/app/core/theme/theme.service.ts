@@ -33,7 +33,7 @@ export class ThemeService {
 
   private initialTheme(): ThemeMode {
     if (!this.isBrowser) {
-      return 'light';
+      return 'dark';
     }
 
     const saved = localStorage.getItem(STORAGE_KEY);
@@ -41,6 +41,6 @@ export class ThemeService {
       return saved;
     }
 
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
   }
 }

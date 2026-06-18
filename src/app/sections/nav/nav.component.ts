@@ -21,6 +21,7 @@ import { ThemeToggleComponent } from '../../shared/ui/theme-toggle/theme-toggle.
           >
         }
       </nav>
+      <a class="availability" href="mailto:hello@mirix.uz">Available · 2026</a>
       <mx-theme-toggle />
     </header>
   `,

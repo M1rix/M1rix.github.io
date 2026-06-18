@@ -1,6 +1,6 @@
 .footer {
   display: grid;
-  grid-template-columns: minmax(260px, 1fr) auto auto;
+  grid-template-columns: minmax(260px, 1fr) minmax(220px, 0.7fr) auto auto;
   gap: 36px;
   border-top: 1px solid var(--mx-border);
   padding-block: 44px 34px;
@@ -9,7 +9,8 @@
 strong {
   display: block;
   margin-bottom: 12px;
-  font-size: 1.15rem;
+  color: var(--mx-gold);
+  font-size: 1.35rem;
   font-weight: 950;
   letter-spacing: 0.12em;
 }
@@ -26,6 +27,25 @@ nav,
   display: grid;
   gap: 10px;
   align-content: start;
+}
+
+.stack-note {
+  display: grid;
+  align-content: start;
+  gap: 10px;
+  border: 1px solid var(--mx-border);
+  border-radius: 22px;
+  padding: 18px;
+  background: var(--mx-card-bg);
+}
+
+.stack-note span {
+  color: var(--mx-gold);
+  font-family: 'JetBrains Mono', 'SFMono-Regular', Consolas, monospace;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
 a {

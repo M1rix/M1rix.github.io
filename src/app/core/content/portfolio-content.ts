@@ -6,10 +6,10 @@ import {
   NavItem,
   PortfolioProfile,
   PrincipleItem,
+  ProfessionalPathItem,
   StackGroup,
   StatItem,
   TestimonialItem,
-  ProfessionalPathItem,
 } from '../models/portfolio.models';
 
 export const person: PortfolioProfile = {
@@ -18,9 +18,9 @@ export const person: PortfolioProfile = {
   shortName: 'Mirix',
   title: 'Full-Stack Java & Angular Engineer',
   location: 'Tashkent, Uzbekistan',
-  headline: 'systems that ship.',
+  headline: 'Engineering business systems with Java, Spring and Angular.',
   subHeadline:
-    'I build reliable business web platforms with Java, Spring Framework, Angular, PostgreSQL, Docker, and production-minded engineering practices.',
+    'I build production-ready web platforms, admin systems and backend-heavy products where clean architecture, stable APIs and maintainable UI matter more than decoration.',
   availability: 'Available for selected enterprise and product projects',
 };
 
@@ -32,13 +32,13 @@ export const navItems: NavItem[] = [
 ];
 
 export const hero: HeroContent = {
-  eyebrow: 'Mirix · Full-Stack Engineering',
-  headlineTop: 'systems that',
-  headlineBottom: 's h i p.',
+  eyebrow: 'MIRIX · FULL-STACK SYSTEMS ENGINEER',
+  headlineTop: 'Engineering business systems',
+  headlineBottom: 'with taste.',
   description:
-    'I turn complex business workflows into reliable web platforms with Java, Spring Framework, Angular, PostgreSQL, and production-ready delivery practices.',
-  primaryCta: 'Let’s work together',
-  secondaryCta: 'View full work →',
+    'I build production-ready web platforms, admin systems and backend-heavy products where clean architecture, stable APIs and maintainable UI matter more than decoration.',
+  primaryCta: 'View selected systems →',
+  secondaryCta: "Let's build something serious",
 };
 
 export const technologies = [
@@ -48,7 +48,6 @@ export const technologies = [
   'Angular',
   'TypeScript',
   'JavaScript',
-  'CSS',
   'Tailwind CSS',
   'Sass',
   'SQL',
@@ -60,11 +59,11 @@ export const technologies = [
   'Docker',
   'Prometheus',
   'Grafana',
-  'jQuery',
+  'jQuery Legacy',
 ];
 
 export const personalStack = {
-  backend: ['Java', 'Spring Framework', 'Spring Boot', 'JPA', 'Hibernate', 'REST APIs', 'Clean Architecture'],
+  backend: ['Java', 'Spring Framework', 'Spring Boot', 'REST APIs', 'JPA', 'Hibernate', 'Clean Architecture'],
   frontend: ['Angular', 'TypeScript', 'JavaScript', 'CSS', 'Tailwind CSS', 'Sass', 'jQuery'],
   database: ['SQL', 'PostgreSQL', 'Relational data modeling', 'Query optimization basics'],
   platformAndTools: ['JHipster', 'Git', 'Docker', 'Prometheus', 'Grafana'],
@@ -72,24 +71,20 @@ export const personalStack = {
 
 export const stackGroups: StackGroup[] = [
   {
-    title: 'Backend Engineering',
-    items: ['Java', 'Spring Framework', 'Spring Boot', 'REST APIs', 'Clean Architecture'],
+    title: 'Backend logic',
+    items: ['Java', 'Spring Framework', 'Spring Boot', 'JPA', 'Hibernate', 'SQL', 'PostgreSQL'],
   },
   {
-    title: 'Frontend Engineering',
-    items: ['Angular', 'TypeScript', 'JavaScript', 'CSS', 'Tailwind CSS', 'Sass'],
+    title: 'Frontend systems',
+    items: ['Angular', 'TypeScript', 'Tailwind CSS', 'Sass', 'UI architecture'],
   },
   {
-    title: 'Data & Persistence',
-    items: ['SQL', 'PostgreSQL', 'JPA', 'Hibernate'],
-  },
-  {
-    title: 'DevOps & Observability',
-    items: ['Git', 'Docker', 'Prometheus', 'Grafana'],
+    title: 'Production thinking',
+    items: ['Git', 'Docker', 'Prometheus', 'Grafana', 'Release discipline'],
   },
   {
     title: 'Architecture & Delivery',
-    items: ['JHipster', 'Admin UI Architecture', 'RBAC Workflows'],
+    items: ['REST APIs', 'Clean Architecture', 'JHipster', 'RBAC Workflows'],
   },
   {
     title: 'Legacy / Support Experience',
@@ -100,93 +95,84 @@ export const stackGroups: StackGroup[] = [
 
 export const about = {
   intro:
-    'I am Mirshod Allaberganov, a full-stack engineer from Tashkent, focused on Java/Spring backend systems, Angular frontends, and production-ready business platforms.',
-  cardTitle: 'Engineering that survives production pressure',
-  cardText: 'Engineering that turns messy workflows into maintainable systems, clear interfaces, and observable production services.',
+    'I connect backend complexity with interfaces people can actually use. My work sits between business logic, database design, Angular UI, integration flows and deployment discipline.',
+  cardTitle: 'Systems over templates',
+  cardText:
+    'I care about clean boundaries, predictable APIs, maintainable screens and production visibility. The goal is not decoration; it is software that teams can operate and extend.',
 };
 
 export const principles: PrincipleItem[] = [
-  { title: 'Domain first', text: 'Model business flows before drawing screens or tables.' },
-  { title: 'Clean delivery', text: 'Ship useful increments without turning the codebase into debt.' },
-  {
-    title: 'Production mindset',
-    text: 'Logs, roles, audit trails, and failure paths are part of the product.',
-  },
+  { title: 'Backend logic', text: 'Java, Spring, JPA, Hibernate, SQL and PostgreSQL shaped around business rules.' },
+  { title: 'Frontend systems', text: 'Angular, TypeScript, Tailwind and Sass composed into maintainable UI architecture.' },
+  { title: 'Production thinking', text: 'Git, Docker, Prometheus, Grafana and release discipline treated as product work.' },
 ];
 
 export const stats: StatItem[] = [
   { value: '5+', label: 'Business systems' },
-  { value: '3+', label: 'Years of engineering practice' },
   { value: '10+', label: 'Production workflows improved' },
+  { value: '1', label: 'Core principle: structure before decoration' },
 ];
 
 export const professionalPath: ProfessionalPathItem[] = [
   {
     date: 'Present',
     badge: 'Full-stack',
-    title: 'Full-Stack Java & Angular Engineer',
+    title: 'Full-stack Java & Angular Engineer',
     description:
-      'Building business web platforms with Java, Spring Framework, Angular, PostgreSQL, Docker, and clean delivery practices.',
-  },
-  {
-    date: '2026',
-    badge: 'Architecture',
-    title: 'JHipster + Angular Template Migration',
-    description:
-      'Structured a custom Angular webapp architecture around JHipster while keeping generated backend conventions maintainable.',
+      'Building admin systems, backend APIs and production-ready web platforms with Java, Spring, Angular and PostgreSQL.',
   },
   {
     date: '2025',
-    badge: 'Product',
-    title: 'Reportix Workflow System',
+    badge: 'Business tooling',
+    title: 'Internal reporting and business tooling',
     description:
-      'Designed and improved a reporting workflow for teams, structured daily updates, and export-ready communication.',
+      'Designed and improved reporting workflows, export formats and internal tools focused on daily team visibility.',
   },
   {
-    date: 'Ongoing',
-    badge: 'Growth',
-    title: 'Senior Engineering Track',
+    date: 'Earlier',
+    badge: 'Foundation',
+    title: 'Java/Spring + Angular foundation',
     description:
-      'Focused on clean architecture, DDD, system design, observability, CI/CD, and production-grade engineering discipline.',
+      'Built experience around Spring Framework, JPA/Hibernate, SQL, Angular, Tailwind/Sass, Git and Docker-based development.',
   },
 ];
 
 export const testimonials: TestimonialItem[] = [
   {
     quote:
-      'Mirix thinks beyond the screen. He asks about workflow, data, roles, and failure cases before writing UI.',
+      'Mirix thinks beyond screens. He asks where the data comes from, how the rule changes later, and how the team will maintain the feature after release.',
     name: 'Mock Product Lead',
-    role: 'Enterprise Workflow Project',
+    role: 'Placeholder testimonial',
   },
   {
     quote:
-      'The strongest part was structure: clean pages, clear responsibilities, and implementation that the team could continue.',
+      'He is strongest when the task is not just UI, but a workflow: roles, states, backend rules and frontend clarity.',
     name: 'Mock Engineering Manager',
-    role: 'Internal Platform',
+    role: 'Placeholder testimonial',
   },
   {
     quote:
-      'He connects backend constraints with frontend decisions instead of treating them as separate worlds.',
+      'Good speed, but more importantly, he cares about structure. That makes the system easier to extend.',
     name: 'Mock Backend Lead',
-    role: 'Java/Spring System',
+    role: 'Placeholder testimonial',
   },
   {
     quote:
-      'The UI became easier to understand because the domain model was clarified first.',
+      'The admin experience felt calmer because the domain model was clarified before the screens were polished.',
     name: 'Mock Business Analyst',
-    role: 'Operations Product',
+    role: 'Placeholder testimonial',
   },
 ];
 
 export const contact: ContactContent = {
-  status: 'Available · Selected projects',
-  title: 'Interested in building reliable software?',
+  status: 'AVAILABLE FOR SERIOUS BUILDS',
+  title: 'Need a developer who can handle both system logic and polished UI?',
   description:
-    'Complex workflow, admin platform, enterprise UI, or Java/Spring system - let’s talk.',
-  primaryCta: 'Start a project',
-  secondaryCta: 'See recent work →',
-  slotsLabel: 'project slots this quarter',
-  slots: ['1', '2', '3'],
+    'I can help with Java/Spring backends, Angular admin platforms, PostgreSQL data models, integrations, deployment structure and production visibility.',
+  primaryCta: 'Start a conversation',
+  secondaryCta: 'View selected systems →',
+  slotsLabel: 'Selected projects only',
+  slots: ['2026', 'Remote', 'Java · Angular · Spring'],
 };
 
 export const footer: FooterContent = {

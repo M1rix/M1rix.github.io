@@ -4,7 +4,6 @@
     <loc>https://mirix.uz/</loc>
     <priority>1.0</priority>
   </url>
-  <url><loc>https://mirix.uz/projects/aurum-admin</loc><priority>0.8</priority></url>
   <url><loc>https://mirix.uz/projects/hostplanner</loc><priority>0.8</priority></url>
   <url><loc>https://mirix.uz/projects/reportix</loc><priority>0.8</priority></url>
   <url><loc>https://mirix.uz/projects/team-devkit</loc><priority>0.8</priority></url>

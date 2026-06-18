@@ -12,7 +12,11 @@ import { footer, navItems } from '../../core/content/portfolio-content';
     <footer class="mx-container footer">
       <div>
         <strong>{{ footer.brand }}</strong>
-        <p>I turn business complexity into products people can actually operate.</p>
+        <p>I turn business workflows into stable backend systems and clean Angular interfaces.</p>
+      </div>
+      <div class="stack-note">
+        <span>Core stack</span>
+        <p>Java · Spring · Angular · PostgreSQL · Docker</p>
       </div>
       <nav aria-label="Footer navigation">
         @for (item of navItems; track item.href) {
