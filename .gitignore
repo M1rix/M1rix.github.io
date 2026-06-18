@@ -1,0 +1,6 @@
+node_modules/
+dist/
+.angular/
+dev-server.log
+.DS_Store
+*.log

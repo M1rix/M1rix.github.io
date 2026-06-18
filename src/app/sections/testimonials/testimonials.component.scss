@@ -1,0 +1,54 @@
+.review-grid {
+  columns: 3 280px;
+  column-gap: 18px;
+}
+
+.review-card {
+  display: inline-grid;
+  width: 100%;
+  gap: 22px;
+  margin: 0 0 18px;
+  break-inside: avoid;
+  border: 1px solid var(--mx-border);
+  border-radius: var(--mx-radius-md);
+  padding: 24px;
+  background: rgb(255 253 248 / 0.74);
+  box-shadow: 0 16px 44px rgb(63 47 24 / 0.07);
+}
+
+.review-card p {
+  margin: 0;
+  color: var(--mx-text);
+  font-size: 1rem;
+  line-height: 1.72;
+}
+
+.review-card div {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  column-gap: 12px;
+  align-items: center;
+}
+
+.review-card span {
+  display: grid;
+  grid-row: span 2;
+  width: 44px;
+  aspect-ratio: 1;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--mx-primary);
+  background: var(--mx-primary-soft);
+  font-size: 0.8rem;
+  font-weight: 950;
+}
+
+.review-card strong,
+.review-card small {
+  min-width: 0;
+}
+
+.review-card small {
+  color: var(--mx-muted);
+  font-weight: 720;
+}

@@ -1,0 +1,205 @@
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.92fr);
+  align-items: center;
+  gap: 54px;
+  padding-block: 112px 86px;
+}
+
+.hero-copy {
+  display: grid;
+  gap: 26px;
+}
+
+h1 {
+  display: grid;
+  margin: 0;
+  font-size: clamp(4.4rem, 12vw, 10.8rem);
+  line-height: 0.82;
+  letter-spacing: 0;
+}
+
+.ship {
+  color: var(--mx-primary);
+  font-size: 0.58em;
+  letter-spacing: 0.17em;
+  text-transform: lowercase;
+}
+
+.description {
+  max-width: 670px;
+  margin: 0;
+  color: var(--mx-muted);
+  font-size: clamp(1.1rem, 2vw, 1.32rem);
+  line-height: 1.72;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.hero-meta {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin: 12px 0 0;
+}
+
+.hero-meta div {
+  border-left: 1px solid var(--mx-border);
+  padding-left: 18px;
+}
+
+dt {
+  color: var(--mx-muted);
+  font-size: 0.78rem;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+dd {
+  margin: 8px 0 0;
+  font-weight: 850;
+}
+
+.identity-card {
+  position: relative;
+  min-height: 590px;
+  border: 1px solid var(--mx-border);
+  border-radius: 36px;
+  overflow: hidden;
+  background:
+    linear-gradient(140deg, rgb(255 253 248 / 0.95), rgb(238 231 216 / 0.72)),
+    var(--mx-surface);
+  box-shadow: var(--mx-shadow);
+}
+
+.grid-layer {
+  position: absolute;
+  inset: 24px;
+  border-radius: 30px;
+  background:
+    linear-gradient(rgb(31 95 139 / 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(31 95 139 / 0.08) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.portrait {
+  position: absolute;
+  inset: 108px 64px 70px;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 22px;
+  border: 1px solid rgb(222 211 191 / 0.86);
+  border-radius: 32px;
+  background:
+    radial-gradient(circle at 50% 22%, rgb(220 234 243 / 0.95), transparent 36%),
+    linear-gradient(180deg, rgb(255 253 248 / 0.94), rgb(243 228 200 / 0.78));
+  box-shadow: 0 24px 60px rgb(63 47 24 / 0.12);
+}
+
+.portrait span {
+  display: grid;
+  width: 164px;
+  aspect-ratio: 1;
+  place-items: center;
+  border: 1px solid var(--mx-border);
+  border-radius: 50%;
+  color: var(--mx-primary);
+  background: var(--mx-surface);
+  font-size: 4.5rem;
+  font-weight: 950;
+}
+
+.portrait small {
+  max-width: 250px;
+  color: var(--mx-muted);
+  font-weight: 780;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.badge {
+  position: absolute;
+  z-index: 2;
+  border: 1px solid var(--mx-border);
+  border-radius: 999px;
+  padding: 10px 14px;
+  background: rgb(255 253 248 / 0.88);
+  box-shadow: 0 14px 34px rgb(63 47 24 / 0.1);
+  font-size: 0.84rem;
+  font-weight: 850;
+}
+
+.badge:nth-of-type(1) {
+  top: 56px;
+  left: 54px;
+}
+
+.badge:nth-of-type(2) {
+  top: 92px;
+  right: 44px;
+}
+
+.badge:nth-of-type(3) {
+  top: 258px;
+  left: 28px;
+}
+
+.badge:nth-of-type(4) {
+  right: 28px;
+  bottom: 194px;
+}
+
+.badge:nth-of-type(5) {
+  bottom: 58px;
+  left: 52px;
+}
+
+.badge:nth-of-type(6) {
+  right: 74px;
+  bottom: 42px;
+}
+
+@media (max-width: 980px) {
+  .hero {
+    grid-template-columns: 1fr;
+    padding-block: 72px 54px;
+  }
+
+  .identity-card {
+    min-height: 470px;
+  }
+}
+
+@media (max-width: 560px) {
+  .hero {
+    gap: 34px;
+    padding-block: 54px 38px;
+  }
+
+  h1 {
+    font-size: clamp(4rem, 22vw, 6.8rem);
+  }
+
+  .hero-meta {
+    grid-template-columns: 1fr;
+  }
+
+  .identity-card {
+    min-height: 430px;
+    border-radius: 26px;
+  }
+
+  .portrait {
+    inset: 86px 34px 72px;
+  }
+
+  .badge {
+    font-size: 0.74rem;
+  }
+}

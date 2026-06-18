@@ -1,0 +1,37 @@
+.timeline {
+  display: grid;
+  border-top: 1px solid var(--mx-border);
+}
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 34px;
+  border-bottom: 1px solid var(--mx-border);
+  padding: 30px 0;
+}
+
+time {
+  color: var(--mx-primary);
+  font-weight: 900;
+}
+
+h3 {
+  margin: 0 0 10px;
+  font-size: clamp(1.35rem, 2vw, 2rem);
+}
+
+p {
+  max-width: 790px;
+  margin: 0;
+  color: var(--mx-muted);
+  font-size: 1.02rem;
+  line-height: 1.72;
+}
+
+@media (max-width: 680px) {
+  .timeline-item {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+}
