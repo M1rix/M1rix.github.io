@@ -20,13 +20,13 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 24
-          cache: 'pnpm'
+          cache: 'npm'
 
       - name: Install deps
-        run: pnpm ci
+        run: npm ci
 
       - name: Build Angular (prod)
-        run: pnpm run build --if-present || ng build --configuration production
+        run: npm run build --if-present || ng build --configuration production
 
       # 👇 Укажи правильный путь сборки
       # Обычно: dist/<project-name>/browser
