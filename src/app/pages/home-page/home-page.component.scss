@@ -52,7 +52,7 @@ img {
   left: 0;
   width: auto;
   max-width: none;
-  height: 100dvh;
+  height: 145dvh;
   object-fit: contain;
   object-position: left top;
   pointer-events: none;
@@ -681,7 +681,6 @@ img {
 
 .footer-rock {
   right: -7%;
-  bottom: -14px;
   z-index: 1;
   width: min(42vw, 630px);
 }

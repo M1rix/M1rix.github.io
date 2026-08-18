@@ -23,8 +23,8 @@ interface StackItem {
   template: `
     <div class="portfolio-shell">
       <aside class="side-rail" aria-label="Primary navigation">
-        <img class="nav-pillar" src="/assets/mics/nav-pillar.png" alt="" aria-hidden="true" loading="eager" decoding="async" />
-        <a class="brand-mark" href="#home" aria-label="Mirix home">M1</a>
+        <img class="nav-pillar" src="/assets/mics/nav-pillar.png" alt="" style="left: -1px; top: -3px" aria-hidden="true" loading="eager" decoding="async" />
+        <a class="brand-mark" href="#home" aria-label="Mirix home"><img src="favicon.ico" alt="" width="48"></a>
 
         <nav class="rail-nav">
           <a href="#home" [class.is-active]="activeSection() === 'home'" aria-label="Home">
@@ -73,11 +73,12 @@ interface StackItem {
           </div>
 
           <div class="hero-scene" aria-hidden="true">
-            <img class="hero-planet" src="/assets/mics/hero-moon.png" alt="" loading="eager" decoding="async" />
-            <img class="hero-particle hero-particle-a" src="/assets/mics/rock-particle-1.png" alt="" loading="eager" decoding="async" />
-            <img class="hero-particle hero-particle-b" src="/assets/mics/rock-particle-2.png" alt="" loading="eager" decoding="async" />
-            <img class="hero-rock" src="/assets/mics/hero-rock.png" alt="" loading="eager" decoding="async" />
-            <img class="hero-orb" src="/assets/mics/hero-orb.png" alt="" loading="eager" decoding="async" />
+            <img class="hero-planet" style="scale: 4" src="/assets/mics/hero-moon.png" alt="" loading="eager" decoding="async" />
+            <img class="hero-particle hero-particle-a" style="left: 0" src="/assets/mics/rock-particle-1.png" alt="" loading="eager" decoding="async" />
+            <img class="hero-particle hero-particle-b" style="left: -1rem; top: 12rem" src="/assets/mics/rock-particle-2.png" alt="" loading="eager" decoding="async" />
+            <img class="hero-rock" style="transform: rotate(90deg); left: 4rem" src="/assets/mics/hero-rock.png" alt="" loading="eager" decoding="async" />
+            <img class="hero-orb" style="left: 12rem; top: 3rem" src="/assets/mics/hero-orb.png" alt="" loading="eager" decoding="async" />
+            <img class="hero-rock" style="" src="/assets/mics/hero-rock.png" alt="" loading="eager" decoding="async" />
 
             <div class="terminal-card">
               <code>&gt; architecting solutions</code>
@@ -149,7 +150,7 @@ interface StackItem {
           </section>
         </div>
 
-        <section id="contact" data-section="contact" class="contact-section content-section">
+        <section id="contact" data-section="contact" class="contact-section content-section" style="border: none">
           <div class="contact-copy">
             <div class="section-kicker"><span></span> LET'S CONNECT <i></i></div>
             <h2>Have a <em>project</em> in mind?<br />Let’s build something amazing together.</h2>
@@ -162,7 +163,7 @@ interface StackItem {
             </div>
           </div>
 
-          <img class="footer-rock" src="/assets/mics/footer-rock.png" alt="" aria-hidden="true" loading="lazy" decoding="async" />
+          <img class="footer-rock" src="/assets/mics/footer-rock.png" alt="" aria-hidden="true" loading="lazy" decoding="async" style="bottom: -3px;"/>
           <div class="footer-terminal" aria-hidden="true"><code>$ let'sWorkTogether() &#123;<br />&nbsp;&nbsp;return success;<br />&#125;</code></div>
 
           <footer class="footer-row">
