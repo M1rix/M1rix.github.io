@@ -7,7 +7,7 @@ interface ProjectCard {
   title: string;
   subtitle: string;
   description: string;
-  preview: 'aurum' | 'restaurant' | 'punctra' | 'cardmon';
+  asset: string;
   tone: 'dark' | 'light';
 }
 
@@ -27,7 +27,7 @@ interface StackItem {
 
         <nav class="rail-nav">
           <a href="#home" [class.is-active]="activeSection() === 'home'" aria-label="Home">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m4 10 8-6 8 6v9a1 1 0 0 1-1 1h-5v-6h-4v6H5a1 1 0 0 1-1-1z" /></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m4 10 8-6 8 6v9a1 1 0 0 1-1 1h-5v-6h-4v6H5a1 1 0 0 1-1-1z"/></svg>
           </a>
           <a href="#about" [class.is-active]="activeSection() === 'about'" aria-label="About">
             <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3"/><path d="M5.5 20c.7-4 3-6 6.5-6s5.8 2 6.5 6"/></svg>
@@ -52,68 +52,36 @@ interface StackItem {
       </aside>
 
       <main class="page-canvas">
-        <section id="home" data-section="home" class="hero-section scroll-mt-8">
+        <section id="home" data-section="home" class="hero-section">
           <div class="hero-copy">
             <div class="section-kicker"><span></span> FULL-STACK JAVA & ANGULAR ENGINEER <i></i></div>
+
             <h1>M1RIX</h1>
+
             <p class="hero-lead">
               I build digital products from<br />
               <strong>backend logic</strong> to <strong>polished interfaces.</strong>
             </p>
 
-            <div class="hero-stack" aria-label="Primary stack">
-              <span><b class="tech-glyph angular">A</b> Angular</span>
-              <span><b class="tech-glyph spring">S</b> Spring</span>
-              <span><b class="tech-glyph postgres">P</b> PostgreSQL</span>
-              <span class="more-chip">+ Java</span>
+            <div class="hero-stack" aria-label="Primary technology stack">
+              <span class="tech-pill"><b class="tech-logo angular-logo" aria-hidden="true">A</b>Angular</span>
+              <span class="tech-pill"><b class="tech-logo spring-logo" aria-hidden="true">S</b>Spring</span>
+              <span class="tech-pill"><b class="tech-logo postgres-logo" aria-hidden="true">P</b>PostgreSQL</span>
+              <span class="tech-pill more-pill">+ Java</span>
             </div>
 
             <div class="hero-actions">
               <a class="primary-button" href="#projects">View my work <span>↗</span></a>
-              <a class="scroll-hint" href="#projects">Scroll to explore <span class="scroll-line"></span></a>
+              <a class="scroll-hint" href="#projects">Scroll to explore<span class="scroll-arc" aria-hidden="true"></span></a>
             </div>
           </div>
 
           <div class="hero-art" aria-hidden="true">
-            <svg class="space-art" viewBox="0 0 620 500" role="presentation">
-              <defs>
-                <radialGradient id="orb" cx="34%" cy="28%" r="70%">
-                  <stop offset="0" stop-color="#ffffff"/>
-                  <stop offset=".24" stop-color="#d8d6ef"/>
-                  <stop offset=".5" stop-color="#76758a"/>
-                  <stop offset=".66" stop-color="#262632"/>
-                  <stop offset=".78" stop-color="#a58cff"/>
-                  <stop offset=".9" stop-color="#ffffff"/>
-                  <stop offset="1" stop-color="#32323f"/>
-                </radialGradient>
-                <linearGradient id="rock" x1="0" x2="1" y1="0" y2="1">
-                  <stop stop-color="#34343a"/>
-                  <stop offset=".4" stop-color="#111115"/>
-                  <stop offset="1" stop-color="#020203"/>
-                </linearGradient>
-                <filter id="grain"><feTurbulence baseFrequency=".8" numOctaves="3" result="n"/><feBlend in="SourceGraphic" in2="n" mode="multiply"/></filter>
-                <filter id="shadow"><feDropShadow dx="-18" dy="24" stdDeviation="22" flood-color="#11111a" flood-opacity=".3"/></filter>
-              </defs>
-              <circle cx="455" cy="110" r="124" fill="#e8e7f2" opacity=".75"/>
-              <path d="M290 228 358 144 475 145 565 215 610 312 580 418 470 462 360 438 288 360 258 287Z" fill="url(#rock)" filter="url(#grain)"/>
-              <path d="M312 252 405 180 521 218 575 318 520 412 386 416 300 348Z" fill="#050507" opacity=".56"/>
-              <circle cx="408" cy="128" r="105" fill="url(#orb)" stroke="#7164b8" stroke-width="3" filter="url(#shadow)"/>
-              <circle cx="395" cy="109" r="73" fill="none" stroke="#fff" stroke-opacity=".22" stroke-width="2"/>
-              <circle cx="407" cy="127" r="8" fill="#dad3ff"/>
-              <path d="M382 127h50M407 102v50" stroke="#b19cff" stroke-width="1" opacity=".9"/>
-              <polygon points="244,256 268,242 280,264 261,285" fill="#17171b"/>
-              <polygon points="312,44 327,37 339,53 329,70 310,62" fill="#111115"/>
-            </svg>
-            <div class="terminal-card">
-              <code>&gt; architecting solutions</code>
-              <code>&gt; writing clean code</code>
-              <code>&gt; solving real problems</code>
-              <code class="accent">&gt; delivering value</code>
-            </div>
+            <img src="/portfolio-v2/hero-space.webp" alt="" />
           </div>
         </section>
 
-        <section id="projects" data-section="projects" class="projects-section scroll-mt-8">
+        <section id="projects" data-section="projects" class="projects-section">
           <header class="section-heading-row">
             <div class="section-kicker"><span></span> SELECTED WORKS <i></i></div>
             <div class="carousel-controls" aria-hidden="true"><span>←</span><span>→</span></div>
@@ -127,59 +95,43 @@ interface StackItem {
                 <p class="project-subtitle">{{ project.subtitle }}</p>
                 <p class="project-description">{{ project.description }}</p>
 
-                <div class="project-preview" [class]="'project-preview preview-' + project.preview">
-                  @switch (project.preview) {
-                    @case ('aurum') {
-                      <div class="mini-sidebar"></div>
-                      <div class="mini-topbar"></div>
-                      <div class="mini-stat s1"></div><div class="mini-stat s2"></div><div class="mini-stat s3"></div>
-                      <div class="mini-chart"><i></i><i></i><i></i><i></i><i></i><i></i></div>
-                    }
-                    @case ('restaurant') {
-                      <div class="mini-menu"></div><div class="mini-toolbar"></div>
-                      <div class="calendar-grid">
-                        @for (item of calendarCells; track $index) { <i [class.is-marked]="$index === 6 || $index === 10 || $index === 15"></i> }
-                      </div>
-                    }
-                    @case ('punctra') {
-                      <div class="mini-map"></div><div class="map-zone"></div><div class="map-pin p1"></div><div class="map-pin p2"></div>
-                    }
-                    @case ('cardmon') {
-                      <div class="phone phone-a"><i></i><i></i><i></i><i></i></div>
-                      <div class="phone phone-b"><strong>12,540,000</strong><span>UZS</span><i></i><i></i><i></i></div>
-                    }
-                  }
+                <div class="project-preview">
+                  <img [src]="project.asset" alt="" loading="lazy" />
                 </div>
-                <a class="project-arrow" href="#contact" [attr.aria-label]="'Discuss ' + project.title">↗</a>
+
+                <a class="project-hit-area" href="#contact" [attr.aria-label]="'Discuss ' + project.title"></a>
               </article>
             }
           </div>
+
           <div class="project-position" aria-hidden="true"><span></span></div>
         </section>
 
         <div class="about-stack-grid">
-          <section id="about" data-section="about" class="about-section scroll-mt-8">
+          <section id="about" data-section="about" class="about-section">
             <div class="section-kicker"><span></span> ABOUT ME <i></i></div>
+
             <h2>
               I’m a full-stack developer<br />
               who loves building <em>useful,</em><br />
               scalable and clean software.
             </h2>
+
             <p>
               I work with Java & Spring on the backend and Angular on the frontend. I enjoy designing systems,
-              writing clean code and turning complex business rules into products people can actually operate.
+              writing clean code and turning complex ideas into products.
             </p>
 
-            <div class="about-metrics">
+            <div class="about-metrics" aria-label="Core engineering focus">
               <div><strong>Java</strong><span>Backend systems</span></div>
               <div><strong>Angular</strong><span>Product interfaces</span></div>
               <div><strong>SQL</strong><span>Data-first thinking</span></div>
             </div>
 
-            <a class="primary-button" href="#stack">Explore my stack <span>↗</span></a>
+            <a class="primary-button" href="#stack">More about me <span>↗</span></a>
           </section>
 
-          <section id="stack" data-section="stack" class="stack-section scroll-mt-8">
+          <section id="stack" data-section="stack" class="stack-section">
             <div class="section-kicker"><span></span> TECH STACK <i></i></div>
 
             <div class="stack-group">
@@ -209,12 +161,13 @@ interface StackItem {
               </div>
             </div>
 
-            <div class="code-card" aria-label="Code sample">
+            <div class="code-card" aria-label="Java code sample">
               <div class="code-dot"></div>
               <pre><code><span>public class</span> Developer &#123;
   String name = <b>"M1RIX"</b>;
   String stack = <b>"Java, Spring, Angular, PostgreSQL"</b>;
-  void build() &#123;
+
+  <span>void</span> build() &#123;
     <i>// Turning ideas into real products 🚀</i>
   &#125;
 &#125;</code></pre>
@@ -222,10 +175,11 @@ interface StackItem {
           </section>
         </div>
 
-        <section id="contact" data-section="contact" class="contact-section scroll-mt-8">
+        <section id="contact" data-section="contact" class="contact-section">
           <div class="contact-copy">
             <div class="section-kicker"><span></span> LET'S CONNECT <i></i></div>
-            <h2>Have a <em>project</em> in mind?<br />Let’s build something serious together.</h2>
+
+            <h2>Have a <em>project</em> in mind?<br />Let’s build something amazing together.</h2>
 
             <div class="contact-actions">
               <a class="primary-button" href="mailto:hello@mirix.uz">Send a message <span>↗</span></a>
@@ -236,13 +190,9 @@ interface StackItem {
             </div>
           </div>
 
-          <div class="footer-rock" aria-hidden="true"></div>
-          <div class="footer-terminal" aria-hidden="true"><code>$ let'sWorkTogether() &#123;<br />&nbsp;&nbsp;return success;<br />&#125;</code></div>
+          <img class="footer-art" src="/portfolio-v2/footer-rock.webp" alt="" aria-hidden="true" />
 
-          <footer class="footer-row">
-            <span>© 2026 M1RIX. All rights reserved.</span>
-            <span>Built with <b>Angular</b>, <b>Tailwind</b> and lots of ☕</span>
-          </footer>
+          <footer class="footer-row"><span>© 2026 M1RIX. All rights reserved.</span></footer>
         </section>
       </main>
 
@@ -261,63 +211,62 @@ export class HomePageComponent implements OnInit, AfterViewInit, OnDestroy {
   private observer?: IntersectionObserver;
 
   readonly activeSection = signal('home');
-  readonly calendarCells = Array.from({ length: 18 });
 
   readonly projects: ProjectCard[] = [
     {
       index: '01',
-      title: 'AURUM Admin',
-      subtitle: 'Angular · Spring · PostgreSQL',
-      description: 'Gold trading platform admin panel with live operational data, roles and controlled workflows.',
-      preview: 'aurum',
+      title: 'Reportix',
+      subtitle: 'Angular · Spring Boot · PostgreSQL',
+      description: 'Advanced reporting platform with dashboards, filters and real-time insights.',
+      asset: '/portfolio-v2/reportix.webp',
       tone: 'dark',
     },
     {
       index: '02',
       title: 'Restaurant OS',
-      subtitle: 'Angular · Spring · PostgreSQL',
-      description: 'Restaurant management system for staff, reservations, floor planning and daily operations.',
-      preview: 'restaurant',
+      subtitle: 'Angular · Spring Boot · PostgreSQL',
+      description: 'Restaurant management system for staff, reservations, floor planning and operations.',
+      asset: '/portfolio-v2/restaurant-os.webp',
       tone: 'light',
     },
     {
       index: '03',
       title: 'PUNCTRA',
-      subtitle: 'Angular PWA · Spring · PostGIS',
+      subtitle: 'Angular PWA · Spring · PostgreSQL',
       description: 'Geofence-based attendance with location-aware workflows, live maps and operational reporting.',
-      preview: 'punctra',
+      asset: '/portfolio-v2/punctra.webp',
       tone: 'dark',
     },
     {
       index: '04',
-      title: 'Cardmon App',
-      subtitle: 'Angular · Spring · PostgreSQL',
-      description: 'Personal finance app with budgets, wallets, recurring transactions and smart automation.',
-      preview: 'cardmon',
+      title: 'Team DevKit',
+      subtitle: 'Angular · Spring Boot · PostgreSQL',
+      description: 'Developer productivity tools, setup flows and internal engineering workspace.',
+      asset: '/portfolio-v2/team-devkit.webp',
       tone: 'light',
     },
   ];
 
   readonly frontendStack: StackItem[] = [
-    { label: 'Angular', mark: 'A', tone: '#e23b52' },
+    { label: 'Angular', mark: 'A', tone: '#ef3340' },
     { label: 'TypeScript', mark: 'TS', tone: '#3178c6' },
     { label: 'RxJS', mark: 'Rx', tone: '#d81b60' },
     { label: 'HTML5', mark: 'H', tone: '#e34f26' },
-    { label: 'CSS / Sass', mark: 'C', tone: '#5b73df' },
-    { label: 'Tailwind CSS', mark: 'T', tone: '#22b8cf' },
+    { label: 'SCSS', mark: 'S', tone: '#c6538c' },
+    { label: 'Tailwind CSS', mark: 'T', tone: '#06b6d4' },
   ];
 
   readonly backendStack: StackItem[] = [
-    { label: 'Java', mark: 'J', tone: '#f08a24' },
+    { label: 'Java', mark: 'J', tone: '#ea7e20' },
     { label: 'Spring Boot', mark: 'S', tone: '#6db33f' },
     { label: 'Spring Security', mark: 'S', tone: '#55a630' },
     { label: 'JPA / Hibernate', mark: 'H', tone: '#59666c' },
-    { label: 'REST API', mark: 'R', tone: '#527f56' },
+    { label: 'REST API', mark: 'R', tone: '#4d8d64' },
   ];
 
   readonly platformStack: StackItem[] = [
     { label: 'PostgreSQL', mark: 'P', tone: '#336791' },
-    { label: 'Redis', mark: 'R', tone: '#d82c20' },
+    { label: 'Redis', mark: 'R', tone: '#dc382d' },
     { label: 'Docker', mark: 'D', tone: '#2496ed' },
     { label: 'Git', mark: 'G', tone: '#f05032' },
     { label: 'Nginx', mark: 'N', tone: '#009639' },
@@ -339,6 +288,7 @@ export class HomePageComponent implements OnInit, AfterViewInit, OnDestroy {
       },
       { rootMargin: '-24% 0px -55% 0px', threshold: [0.08, 0.2, 0.45] },
     );
+
     sections.forEach(section => this.observer?.observe(section));
   }
 
