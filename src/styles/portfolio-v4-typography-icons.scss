@@ -1,0 +1,309 @@
+/* Portfolio v4: typography + unified local icon system. */
+mx-home-page .portfolio-shell {
+  --font-ui: 'Manrope', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-display: 'Inter Tight', 'Arial Narrow', ui-sans-serif, sans-serif;
+  --font-mono: 'JetBrains Mono', 'SFMono-Regular', Consolas, monospace;
+  font-family: var(--font-ui) !important;
+}
+
+mx-home-page .brand-mark,
+mx-home-page .hero-copy h1,
+mx-home-page .project-card h2,
+mx-home-page .about-section h2,
+mx-home-page .contact-section h2,
+mx-home-page .about-metrics strong {
+  font-family: var(--font-display) !important;
+}
+
+mx-home-page .brand-mark {
+  font-size: 23px !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.055em !important;
+}
+
+mx-home-page .section-kicker {
+  font-family: var(--font-ui) !important;
+  font-size: 10px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.18em !important;
+}
+
+mx-home-page .hero-copy h1 {
+  font-size: clamp(108px, 10.2vw, 172px) !important;
+  font-weight: 300 !important;
+  line-height: 0.82 !important;
+  letter-spacing: -0.085em !important;
+}
+
+mx-home-page .hero-lead {
+  font-family: var(--font-display) !important;
+  font-size: clamp(22px, 1.65vw, 30px) !important;
+  font-weight: 450 !important;
+  line-height: 1.28 !important;
+  letter-spacing: -0.025em !important;
+}
+
+mx-home-page .primary-button,
+mx-home-page .more-chip,
+mx-home-page .hero-stack,
+mx-home-page .project-subtitle,
+mx-home-page .project-description,
+mx-home-page .stack-chip,
+mx-home-page .footer-row {
+  font-family: var(--font-ui) !important;
+}
+
+mx-home-page .primary-button {
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.01em !important;
+}
+
+mx-home-page .project-card h2 {
+  font-size: 17px !important;
+  font-weight: 650 !important;
+  letter-spacing: -0.035em !important;
+}
+
+mx-home-page .project-subtitle {
+  font-size: 9.5px !important;
+}
+
+mx-home-page .project-description {
+  font-size: 11px !important;
+}
+
+mx-home-page .about-section h2,
+mx-home-page .contact-section h2 {
+  font-size: clamp(29px, 2.65vw, 40px) !important;
+  font-weight: 520 !important;
+  line-height: 1.08 !important;
+  letter-spacing: -0.045em !important;
+}
+
+mx-home-page .about-section h2 em,
+mx-home-page .contact-section h2 em {
+  font-family: var(--font-display) !important;
+  font-style: italic !important;
+  font-weight: 500 !important;
+}
+
+mx-home-page .about-metrics strong {
+  font-size: 25px !important;
+  font-weight: 650 !important;
+  letter-spacing: -0.04em !important;
+}
+
+mx-home-page .terminal-card code,
+mx-home-page .footer-terminal code,
+mx-home-page .code-card pre {
+  font-family: var(--font-mono) !important;
+  font-weight: 450 !important;
+  letter-spacing: -0.015em !important;
+}
+
+mx-home-page .terminal-card code,
+mx-home-page .footer-terminal code {
+  font-size: 11px !important;
+  line-height: 1.65 !important;
+}
+
+mx-home-page .code-card pre {
+  font-size: 10.5px !important;
+  line-height: 1.65 !important;
+}
+
+/* NAVIGATION ICONS */
+mx-home-page .rail-nav a svg {
+  display: none !important;
+}
+
+mx-home-page .rail-nav a::after {
+  --nav-size: 21px;
+  position: relative;
+  z-index: 2;
+  width: var(--nav-size);
+  height: var(--nav-size);
+  content: '';
+  background-image: url('/assets/icons/nav-sprite.svg');
+  background-repeat: no-repeat;
+  background-size: calc(var(--nav-size) * 5) var(--nav-size);
+  background-position: calc(var(--nav-index, 0) * var(--nav-size) * -1) 0;
+}
+
+mx-home-page .rail-nav a:nth-child(1) { --nav-index: 0; }
+mx-home-page .rail-nav a:nth-child(2) { --nav-index: 1; }
+mx-home-page .rail-nav a:nth-child(3) { --nav-index: 2; }
+mx-home-page .rail-nav a:nth-child(4) { --nav-index: 3; }
+mx-home-page .rail-nav a:nth-child(5) { --nav-index: 4; }
+
+/* Hero technologies: replace placeholder letters with actual vector marks. */
+mx-home-page .tech-glyph {
+  width: 24px !important;
+  height: 24px !important;
+  color: transparent !important;
+  background: transparent !important;
+  font-size: 0 !important;
+}
+
+mx-home-page .tech-glyph::after {
+  --tech-size: 24px;
+  width: var(--tech-size);
+  height: var(--tech-size);
+  content: '';
+  background-image: url('/assets/icons/tech-sprite.svg');
+  background-repeat: no-repeat;
+  background-size: calc(var(--tech-size) * 16) var(--tech-size);
+  background-position: calc(var(--tech-index, 0) * var(--tech-size) * -1) 0;
+}
+
+mx-home-page .tech-glyph.angular { --tech-index: 0; }
+mx-home-page .tech-glyph.spring { --tech-index: 7; }
+mx-home-page .tech-glyph.postgres { --tech-index: 11; }
+
+/* Full technology stack icons. */
+mx-home-page .stack-chip b {
+  position: relative;
+  display: grid !important;
+  width: 18px !important;
+  min-width: 18px !important;
+  height: 18px !important;
+  padding: 0 !important;
+  place-items: center;
+  color: transparent !important;
+  background: transparent !important;
+  font-size: 0 !important;
+}
+
+mx-home-page .stack-chip b::before {
+  --tech-size: 18px;
+  width: var(--tech-size);
+  height: var(--tech-size);
+  content: '';
+  background-image: url('/assets/icons/tech-sprite.svg');
+  background-repeat: no-repeat;
+  background-size: calc(var(--tech-size) * 16) var(--tech-size);
+  background-position: calc(var(--tech-index, 0) * var(--tech-size) * -1) 0;
+}
+
+/* Frontend: section-kicker is the first div child, therefore groups are divs 2/3/4. */
+mx-home-page .stack-section > .stack-group:nth-of-type(2) .stack-chip:nth-child(1) b { --tech-index: 0; }
+mx-home-page .stack-section > .stack-group:nth-of-type(2) .stack-chip:nth-child(2) b { --tech-index: 1; }
+mx-home-page .stack-section > .stack-group:nth-of-type(2) .stack-chip:nth-child(3) b { --tech-index: 2; }
+mx-home-page .stack-section > .stack-group:nth-of-type(2) .stack-chip:nth-child(4) b { --tech-index: 3; }
+mx-home-page .stack-section > .stack-group:nth-of-type(2) .stack-chip:nth-child(5) b { --tech-index: 4; }
+mx-home-page .stack-section > .stack-group:nth-of-type(2) .stack-chip:nth-child(6) b { --tech-index: 5; }
+
+mx-home-page .stack-section > .stack-group:nth-of-type(3) .stack-chip:nth-child(1) b { --tech-index: 6; }
+mx-home-page .stack-section > .stack-group:nth-of-type(3) .stack-chip:nth-child(2) b { --tech-index: 7; }
+mx-home-page .stack-section > .stack-group:nth-of-type(3) .stack-chip:nth-child(3) b { --tech-index: 8; }
+mx-home-page .stack-section > .stack-group:nth-of-type(3) .stack-chip:nth-child(4) b { --tech-index: 9; }
+mx-home-page .stack-section > .stack-group:nth-of-type(3) .stack-chip:nth-child(5) b { --tech-index: 10; }
+
+mx-home-page .stack-section > .stack-group:nth-of-type(4) .stack-chip:nth-child(1) b { --tech-index: 11; }
+mx-home-page .stack-section > .stack-group:nth-of-type(4) .stack-chip:nth-child(2) b { --tech-index: 12; }
+mx-home-page .stack-section > .stack-group:nth-of-type(4) .stack-chip:nth-child(3) b { --tech-index: 13; }
+mx-home-page .stack-section > .stack-group:nth-of-type(4) .stack-chip:nth-child(4) b { --tech-index: 14; }
+mx-home-page .stack-section > .stack-group:nth-of-type(4) .stack-chip:nth-child(5) b { --tech-index: 15; }
+
+/* Social icons: replace GH/TG/in/mail glyph text. */
+mx-home-page .social-button {
+  font-size: 0 !important;
+}
+
+mx-home-page .social-button::before {
+  --social-size: 19px;
+  width: var(--social-size);
+  height: var(--social-size);
+  content: '';
+  background-image: url('/assets/icons/social-sprite.svg');
+  background-repeat: no-repeat;
+  background-size: calc(var(--social-size) * 4) var(--social-size);
+  background-position: calc(var(--social-index, 0) * var(--social-size) * -1) 0;
+}
+
+mx-home-page .contact-actions .social-button:nth-child(2) { --social-index: 0; }
+mx-home-page .contact-actions .social-button:nth-child(3) { --social-index: 1; }
+mx-home-page .contact-actions .social-button:nth-child(4) { --social-index: 2; }
+mx-home-page .contact-actions .social-button:nth-child(5) { --social-index: 3; }
+
+/* Action arrows: no more unicode arrows. */
+mx-home-page .primary-button > span {
+  --action-size: 15px;
+  width: var(--action-size);
+  height: var(--action-size);
+  overflow: hidden;
+  color: transparent !important;
+  font-size: 0 !important;
+  background-image: url('/assets/icons/action-sprite.svg');
+  background-repeat: no-repeat;
+  background-size: calc(var(--action-size) * 3) var(--action-size);
+  background-position: 0 0;
+  filter: invert(1);
+}
+
+mx-home-page .project-arrow {
+  font-size: 0 !important;
+}
+
+mx-home-page .project-arrow::before {
+  --action-size: 16px;
+  width: var(--action-size);
+  height: var(--action-size);
+  content: '';
+  background-image: url('/assets/icons/action-sprite.svg');
+  background-repeat: no-repeat;
+  background-size: calc(var(--action-size) * 3) var(--action-size);
+  background-position: 0 0;
+  filter: invert(1);
+}
+
+mx-home-page .carousel-controls span {
+  font-size: 0 !important;
+}
+
+mx-home-page .carousel-controls span::before {
+  --action-size: 17px;
+  width: var(--action-size);
+  height: var(--action-size);
+  content: '';
+  background-image: url('/assets/icons/action-sprite.svg');
+  background-repeat: no-repeat;
+  background-size: calc(var(--action-size) * 3) var(--action-size);
+}
+
+mx-home-page .carousel-controls span:first-child::before {
+  background-position: calc(var(--action-size) * -1) 0;
+}
+
+mx-home-page .carousel-controls span:last-child::before {
+  background-position: calc(var(--action-size) * -2) 0;
+}
+
+/* Mobile numbers become the same navigation icon language. */
+@media (max-width: 900px) {
+  mx-home-page .hero-copy h1 {
+    font-size: clamp(80px, 23vw, 122px) !important;
+    letter-spacing: -0.08em !important;
+  }
+
+  mx-home-page .mobile-nav a {
+    font-size: 0 !important;
+  }
+
+  mx-home-page .mobile-nav a::before {
+    --nav-size: 20px;
+    width: var(--nav-size);
+    height: var(--nav-size);
+    content: '';
+    background-image: url('/assets/icons/nav-sprite.svg');
+    background-repeat: no-repeat;
+    background-size: calc(var(--nav-size) * 5) var(--nav-size);
+    background-position: calc(var(--nav-index, 0) * var(--nav-size) * -1) 0;
+  }
+
+  mx-home-page .mobile-nav a:nth-child(1) { --nav-index: 0; }
+  mx-home-page .mobile-nav a:nth-child(2) { --nav-index: 2; }
+  mx-home-page .mobile-nav a:nth-child(3) { --nav-index: 1; }
+  mx-home-page .mobile-nav a:nth-child(4) { --nav-index: 4; }
+}
