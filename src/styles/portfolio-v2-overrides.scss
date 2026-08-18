@@ -1,0 +1,21 @@
+@media (min-width: 901px) and (max-width: 1100px) {
+  .portfolio-shell .project-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .portfolio-shell .project-card {
+    min-height: 285px;
+  }
+}
+
+@media (max-width: 760px) {
+  .portfolio-shell .footer-terminal {
+    display: none;
+  }
+
+  .portfolio-shell .footer-rock {
+    right: -120px;
+    bottom: -90px;
+    opacity: 0.12;
+  }
+}
