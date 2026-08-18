@@ -1,0 +1,16 @@
+{
+  "version": 3,
+  "assets": [
+    "nav-pillar.webp",
+    "hero-rock.webp",
+    "hero-orb.webp",
+    "hero-planet.webp",
+    "hero-particle-1.webp",
+    "hero-particle-2.webp",
+    "../portfolio-v2/reportix.webp",
+    "../portfolio-v2/restaurant-os.webp",
+    "../portfolio-v2/punctra.webp",
+    "../portfolio-v2/team-devkit.webp",
+    "footer-rock.webp"
+  ]
+}
