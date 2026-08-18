@@ -191,9 +191,9 @@ export class HomePageComponent implements OnInit, AfterViewInit, OnDestroy {
 
   readonly projects: ProjectCard[] = [
     { index: '01', title: 'Reportix', subtitle: 'Angular · Spring Boot · PostgreSQL', description: 'Advanced reporting platform with dashboards, filters and real-time insights.', image: '/portfolio-v3/reportix.webp', tone: 'dark' },
-    { index: '02', title: 'Restaurant OS', subtitle: 'Angular · Spring Boot · PostgreSQL', description: 'Restaurant management system for staff, reservations, floor planning and operations.', image: '/portfolio-v3/restaurant-os.webp', tone: 'light' },
-    { index: '03', title: 'PUNCTRA', subtitle: 'Angular PWA · Spring · PostgreSQL', description: 'Geofence-based attendance with location-aware workflows, live maps and operational reporting.', image: '/portfolio-v3/punctra.webp', tone: 'dark' },
-    { index: '04', title: 'Team DevKit', subtitle: 'Angular · Spring Boot · PostgreSQL', description: 'Developer productivity tools, setup flows and internal engineering workspace.', image: '/portfolio-v3/team-devkit.webp', tone: 'light' },
+    // { index: '02', title: 'Restaurant OS', subtitle: 'Angular · Spring Boot · PostgreSQL', description: 'Restaurant management system for staff, reservations, floor planning and operations.', image: '/portfolio-v3/restaurant-os.webp', tone: 'light' },
+    // { index: '03', title: 'PUNCTRA', subtitle: 'Angular PWA · Spring · PostgreSQL', description: 'Geofence-based attendance with location-aware workflows, live maps and operational reporting.', image: '/portfolio-v3/punctra.webp', tone: 'dark' },
+    // { index: '04', title: 'Team DevKit', subtitle: 'Angular · Spring Boot · PostgreSQL', description: 'Developer productivity tools, setup flows and internal engineering workspace.', image: '/portfolio-v3/team-devkit.webp', tone: 'light' },
   ];
 
   readonly frontendStack: StackItem[] = [
