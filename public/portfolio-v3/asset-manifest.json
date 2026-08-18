@@ -1,16 +1,13 @@
 {
-  "version": 3,
-  "assets": [
-    "nav-pillar.webp",
-    "hero-rock.webp",
-    "hero-orb.webp",
-    "hero-planet.webp",
-    "hero-particle-1.webp",
-    "hero-particle-2.webp",
-    "../portfolio-v2/reportix.webp",
-    "../portfolio-v2/restaurant-os.webp",
-    "../portfolio-v2/punctra.webp",
-    "../portfolio-v2/team-devkit.webp",
-    "footer-rock.webp"
-  ]
+  "navPillar": "/portfolio-v3/nav-pillar.webp",
+  "heroRock": "/portfolio-v3/hero-rock.webp",
+  "heroOrb": "/portfolio-v3/hero-orb.webp",
+  "heroPlanet": "/portfolio-v3/hero-planet.webp",
+  "heroParticle1": "/portfolio-v3/hero-particle-1.webp",
+  "heroParticle2": "/portfolio-v3/hero-particle-2.webp",
+  "reportix": "/portfolio-v3/reportix.webp",
+  "restaurantOs": "/portfolio-v3/restaurant-os.webp",
+  "punctra": "/portfolio-v3/punctra.webp",
+  "teamDevKit": "/portfolio-v3/team-devkit.webp",
+  "footerRock": "/portfolio-v3/footer-rock.webp"
 }
