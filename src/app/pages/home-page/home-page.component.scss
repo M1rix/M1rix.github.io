@@ -28,7 +28,7 @@ img {
   inset: 0;
   pointer-events: none;
   content: '';
-  opacity: 0.06;
+  opacity: 0.045;
   background-image:
     radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.75), transparent 0.12rem),
     linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.45));
@@ -39,83 +39,117 @@ img {
   position: fixed;
   inset: 0 auto 0 0;
   z-index: 30;
-  display: flex;
-  width: 106px;
-  flex-direction: column;
-  align-items: center;
+  width: 230px;
+  height: 100dvh;
   color: #fff;
+  pointer-events: none;
   contain: layout paint;
 }
 
 .nav-pillar {
   position: absolute;
-  inset: 0 auto 0 0;
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-  object-position: left center;
+  top: 0;
+  left: 0;
+  width: auto;
+  max-width: none;
+  height: 100dvh;
+  object-fit: contain;
+  object-position: left top;
   pointer-events: none;
+  user-select: none;
 }
 
 .brand-mark {
-  position: relative;
-  z-index: 1;
-  margin-top: 38px;
+  position: absolute;
+  pointer-events: auto;
+  top: 38px;
+  left: 30px;
+  z-index: 3;
+  color: #fff;
   font-size: 21px;
   font-weight: 800;
   letter-spacing: -0.08em;
 }
 
 .rail-nav {
-  position: relative;
-  z-index: 1;
+  position: absolute;
+  pointer-events: auto;
+  top: 145px;
+  left: 22px;
+  z-index: 2;
   display: grid;
-  gap: 18px;
-  margin-top: 92px;
+  gap: 16px;
 }
 
 .rail-nav a {
+  position: relative;
   display: grid;
   width: 50px;
   height: 50px;
   place-items: center;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid transparent;
   border-radius: 16px;
   color: rgba(255, 255, 255, 0.78);
-  background: rgba(255, 255, 255, 0.03);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
-  transition: transform 180ms ease, background 180ms ease, color 180ms ease, border-color 180ms ease;
+  background: transparent;
+  transition: transform 160ms ease, background 160ms ease, border-color 160ms ease, color 160ms ease, box-shadow 160ms ease;
 }
 
-.rail-nav a:hover,
-.rail-nav a.is-active {
+.rail-nav a:hover {
   color: #fff;
-  border-color: rgba(255, 255, 255, 0.16);
-  background: rgba(255, 255, 255, 0.09);
+  background: rgba(255, 255, 255, 0.055);
   transform: translateY(-1px);
 }
 
+.rail-nav a.is-active {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.23);
+  background:
+    radial-gradient(circle at 30% 22%, rgba(255, 255, 255, 0.28), transparent 42%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.045) 45%, rgba(8, 9, 13, 0.86) 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.32),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.05),
+    0 13px 30px rgba(0, 0, 0, 0.28),
+    0 0 18px rgba(111, 87, 255, 0.08);
+}
+
+.rail-nav a.is-active::before {
+  position: absolute;
+  inset: 1px;
+  border-radius: 15px;
+  pointer-events: none;
+  content: '';
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.10), transparent 42%);
+}
+
 .rail-nav svg {
+  position: relative;
+  z-index: 1;
   width: 20px;
   fill: none;
   stroke: currentColor;
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-width: 1.6;
+  stroke-width: 1.55;
 }
 
 .rail-progress {
   position: absolute;
-  bottom: 110px;
-  z-index: 1;
+  pointer-events: auto;
+  left: 22px;
+  bottom: 108px;
+  z-index: 2;
   display: grid;
+  width: 50px;
   gap: 22px;
-  padding: 18px 14px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  justify-items: center;
+  padding: 18px 0;
+  border: 1px solid rgba(255, 255, 255, 0.22);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.03);
+  color: rgba(255, 255, 255, 0.48);
+  background: rgba(7, 8, 12, 0.18);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
   font-size: 11px;
-  color: rgba(255, 255, 255, 0.52);
 }
 
 .rail-progress span {
@@ -129,12 +163,13 @@ img {
 .rail-progress span.is-active::before {
   position: absolute;
   top: 50%;
-  left: -8px;
-  width: 4px;
-  height: 4px;
+  left: -10px;
+  width: 5px;
+  height: 5px;
   border-radius: 50%;
   content: '';
-  background: #ffb72e;
+  background: #ffc84f;
+  box-shadow: 0 0 9px rgba(255, 200, 79, 0.8);
   transform: translateY(-50%);
 }
 
@@ -309,10 +344,12 @@ img {
 .hero-planet,
 .hero-rock,
 .hero-orb,
-.hero-particle {
+.hero-particle,
+.footer-rock {
   position: absolute;
   pointer-events: none;
   user-select: none;
+  backface-visibility: hidden;
 }
 
 .hero-planet {
@@ -643,7 +680,6 @@ img {
 .contact-actions .primary-button { margin-right: 18px; }
 
 .footer-rock {
-  position: absolute;
   right: -7%;
   bottom: -14px;
   z-index: 1;
