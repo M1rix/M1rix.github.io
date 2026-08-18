@@ -23,7 +23,7 @@ interface StackItem {
   template: `
     <div class="portfolio-shell">
       <aside class="side-rail" aria-label="Primary navigation">
-        <img class="nav-pillar" src="/portfolio-v3/nav-pillar.webp" alt="" aria-hidden="true" loading="eager" decoding="async" />
+        <img class="nav-pillar" src="/assets/mics/nav-pillar.png" alt="" aria-hidden="true" loading="eager" decoding="async" />
         <a class="brand-mark" href="#home" aria-label="Mirix home">M1</a>
 
         <nav class="rail-nav">
@@ -73,11 +73,11 @@ interface StackItem {
           </div>
 
           <div class="hero-scene" aria-hidden="true">
-            <img class="hero-planet" src="/portfolio-v3/hero-planet.webp" alt="" loading="eager" decoding="async" />
-            <img class="hero-particle hero-particle-a" src="/portfolio-v3/hero-particle-1.webp" alt="" loading="eager" decoding="async" />
-            <img class="hero-particle hero-particle-b" src="/portfolio-v3/hero-particle-2.webp" alt="" loading="eager" decoding="async" />
-            <img class="hero-rock" src="/portfolio-v3/hero-rock.webp" alt="" loading="eager" decoding="async" />
-            <img class="hero-orb" src="/portfolio-v3/hero-orb.webp" alt="" loading="eager" decoding="async" />
+            <img class="hero-planet" src="/assets/mics/hero-moon.png" alt="" loading="eager" decoding="async" />
+            <img class="hero-particle hero-particle-a" src="/assets/mics/rock-particle-1.png" alt="" loading="eager" decoding="async" />
+            <img class="hero-particle hero-particle-b" src="/assets/mics/rock-particle-2.png" alt="" loading="eager" decoding="async" />
+            <img class="hero-rock" src="/assets/mics/hero-rock.png" alt="" loading="eager" decoding="async" />
+            <img class="hero-orb" src="/assets/mics/hero-orb.png" alt="" loading="eager" decoding="async" />
 
             <div class="terminal-card">
               <code>&gt; architecting solutions</code>
@@ -162,7 +162,7 @@ interface StackItem {
             </div>
           </div>
 
-          <img class="footer-rock" src="/portfolio-v3/footer-rock.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" />
+          <img class="footer-rock" src="/assets/mics/footer-rock.png" alt="" aria-hidden="true" loading="lazy" decoding="async" />
           <div class="footer-terminal" aria-hidden="true"><code>$ let'sWorkTogether() &#123;<br />&nbsp;&nbsp;return success;<br />&#125;</code></div>
 
           <footer class="footer-row">
